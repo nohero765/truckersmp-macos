@@ -2,8 +2,6 @@
  
 An unofficial TruckersMP launcher for macOS, built with Electron, truckersmp-cli, and CrossOver's Wine.
  
-> ⚠️ This project is **not affiliated with or endorsed by TruckersMP or SCS Software**.
- 
 ---
  
 ## What is this?
@@ -76,6 +74,6 @@ The launcher acts as a graphical front-end for `truckersmp-cli`. When you hit la
  
 ---
  
-## Disclaimer
+## Disclaimer ⚠️
  
 This project is unofficial and not affiliated with TruckersMP or CodeWeavers in any way Use at your own risk.
