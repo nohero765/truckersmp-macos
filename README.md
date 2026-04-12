@@ -6,7 +6,7 @@ An unofficial TruckersMP launcher for macOS, built with Electron, truckersmp-cli
  
 ## What is this?
  
-This is a native-feeling macOS GUI launcher that lets you play **Euro Truck Simulator 2 on TruckersMP** (multiplayer) on Apple Silicon Macs without touching the terminal.
+This is a macOS GUI launcher that lets you play Euro Truck Simulator 2 **TruckersMP** mod on Apple Silicon Macs without touching the terminal.
  
 Under the hood it wraps `truckersmp-cli` and CrossOver's Wine environment to handle all the heavy lifting, while giving you a clean interface to configure and launch the game.
  
