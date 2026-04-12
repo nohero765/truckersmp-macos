@@ -6,7 +6,7 @@ An unofficial TruckersMP launcher for macOS, built with Electron, truckersmp-cli
  
 ## What is this?
  
-This is a native-feeling macOS GUI launcher that lets you play **Euro Truck Simulator 2 on TruckersMP** (multiplayer) on Apple Silicon Macs — without touching the terminal.
+This is a native-feeling macOS GUI launcher that lets you play **Euro Truck Simulator 2 on TruckersMP** (multiplayer) on Apple Silicon Macs without touching the terminal.
  
 Under the hood it wraps `truckersmp-cli` and CrossOver's Wine environment to handle all the heavy lifting, while giving you a clean interface to configure and launch the game.
  
@@ -69,11 +69,11 @@ The launcher acts as a graphical front-end for `truckersmp-cli`. When you hit la
 ## Credits
  
 - [**truckersmp-cli**](https://github.com/truckersmp-cli/truckersmp-cli) — The backbone of this launcher. All the actual game launching logic is powered by this tool.
-- [**CrossOver** by CodeWeavers](https://www.codeweavers.com/crossover) — Makes running Ets 2 on macOS possible via Wine and its Translators.
-- **AI assistance** — This project started as a personal idea just to see if TruckersMP could even run on a Mac. It was never really meant to become a full release. AI was used to assit me into bringing that idea to reality — it wasn't something built with the intention of publishing from the start so the assistance helped turn a fun experiment into something actually shareable.
+- [**CrossOver** by CodeWeavers](https://www.codeweavers.com/crossover) — Makes running ETS2 on macOS possible via Wine and its Translators.
+- **AI assistance** — This project started as a personal idea just to see if TruckersMP could even run on a Mac. It was never really meant to become a full release. AI was used to assist me into bringing that idea to reality — it wasn't something built with the intention of publishing from the start so the assistance helped turn a fun experiment into something actually shareable.
  
 ---
  
-## Disclaimer ⚠️
+## ⚠️ Disclaimer
  
 This project is unofficial and not affiliated with TruckersMP or CodeWeavers in any way Use at your own risk.
