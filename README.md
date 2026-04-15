@@ -1,79 +1,133 @@
-# 🚛 Unofficial TruckersMP Launcher for macOS
- 
-An unofficial TruckersMP launcher for macOS, built with Electron, truckersmp-cli, and CrossOver's Wine.
- 
+# TruckersMP for macOS 🚛
+
+A native macOS GUI launcher for [TruckersMP](https://truckersmp.com) — the Euro Truck Simulator 2 multiplayer mod — built with Electron. Wraps [truckersmp-cli](https://github.com/truckersmp-cli/truckersmp-cli) and [CrossOver](https://www.codeweavers.com/crossover) Wine into a clean, dark interface so you can get into the game without touching a terminal.
+
+![App Icon](icon.png)
+
 ---
- 
-## What is this?
- 
-This is a macOS GUI launcher that lets you play Euro Truck Simulator 2 **TruckersMP** mod on Apple Silicon Macs without touching the terminal.
- 
-Under the hood it wraps `truckersmp-cli` and CrossOver's Wine environment to handle all the heavy lifting, while giving you a clean interface to configure and launch the game.
- 
----
- 
+
 ## Features
- 
-- 🖥️ Clean dark UI with a simple launch/stop control
-- 📂 Path configuration with validation for game and Wine prefix (Path are automatically detected)
-- 📋 Live log panel to monitor launch output in real time
-- 🍎 Built for Apple Silicon (Not tested on non M chips)
- 
+
+### Launch & Game Control
+- **One-click launch** into TruckersMP multiplayer or ETS2 singleplayer
+- **macOS / Official mode toggle** — switch between the macOS-optimised launch path and the official Wine path
+- **Stop / Force Kill** — correctly terminates Wine processes via `wineserver -k`; Force Kill kills all Wine-related processes (`wine64`, `wineserver`, `wine-preloader`, `eurotrucks2.exe`)
+
+### Graphics Translators (DOES NOT WORK WILL BE REPLACED LATER!!! PLACEHOLDER!)
+- **D3DMetal** (Apple) — Apple's own DX11 → Metal translator bundled with CrossOver | HIGH MEMORY USAGE ⚠️
+- **DXMT** (Community) — DX11 → Metal, actively maintained | RECOMMENDED | MODERATE RAM USAGE 
+- **DXVK** (Community) — DX9/10/11 → Vulkan → Metal
+- **Auto version detection** reads translator versions directly from the CrossOver binary — no Xcode Command Line Tools required
+- **Env vars preview** shows the exact environment variables that will be set for the selected translator
+
+### Path Management
+- **Auto-detect** for `truckersmp-cli`, CrossOver Wine, Bottle, Steam directory, and game directory
+- **Detection badges** (Found / Not found) with manual override indicators
+- **Browse buttons** and **Reveal in Finder** for all paths
+- **↻ Re-detect** and **⚕ Diagnose CLI** buttons for troubleshooting
+
+### Live Log Viewer
+- **Real-time log streaming** with colour-coded output (info / warn / error / success / system)
+- **Filter bar** to search log output on the fly
+- **Timestamps** toggle and **auto-scroll** toggle
+- **Clear** button to reset the log
+
+### TruckersMP Server Status
+- **Live server list** pulled from the TMP API — shows player count and server status
+- **Auto-refreshes every 60 seconds**, with a manual Refresh button
+
+### Discord Rich Presence
+- **Enable/disable Discord RPC** with a checkbox
+- **Custom Discord Application ID** — bring your own Discord app for a personalised status
+- **Customisable RPC fields**: login text, in-game text, state line, large image key and tooltip
+- **▶ Test it!** button to verify your RPC setup before launching
+
+### Other Settings
+- **Singleplayer mode** — bypasses TruckersMP login and launches ETS2 directly
+- **Metal HUD overlay** — shows GPU/CPU stats in-game; works with any translator
+- **Animated background** — subtle colour blob animations with frosted glass; auto-pauses while the game is running
+- **Extra CLI arguments** field for power users
+- **Command preview** panel — shows the exact command that will be run, with a Copy button
+- **Settings persistence** at `~/.config/truckersmp-launcher/settings.json`
+- **Uninstall section** — remove `truckersmp-cli` or wipe launcher settings without leaving the app
+- **About tab** with version info and dependency credits
+- **Debug bar** for real-time internal diagnostics
+
+### Keyboard Shortcuts
+| Shortcut | Action |
+|---|---|
+| `⌘L` | Launch game |
+| `⌘.` | Stop game |
+| `⌘K` | Clear log |
+
 ---
- 
+
 ## Requirements
- 
-- [CrossOver](https://www.codeweavers.com/crossover) installed
-- [truckersmp-cli](https://github.com/truckersmp-cli/truckersmp-cli) installed via pip
-- Euro Truck Simulator 2 installed through CrossOver
-- Python 3.x (to install truckersmp-cli)
 
-## Notice! (PLACEHOLDER)
+| Dependency | Notes |
+|---|---|
+| macOS | Apple Silicon recommended (required for D3DMetal / GPTK) |
+| [CrossOver](https://www.codeweavers.com/crossover) | Wine runtime — free trial available |
+| [truckersmp-cli](https://github.com/truckersmp-cli/truckersmp-cli) | Install via `pip3 install truckersmp-cli` |
+| Euro Truck Simulator 2 | Must be installed inside a CrossOver bottle via Steam |
 
-This was tested on a **Macbook Air M4 16 GB RAM** while playing it uses 18 gb in busy area its recommended to have 16 gb ram. if your on intel mac its recommended to have beefy specs
- 
 ---
- 
-## Installation
- 
-1. Download the latest release from the [Releases](../../releases) page.
-2. Open the `.dmg` and drag the app to your Applications folder.
-3. On first launch, configure your paths in the settings panel:
-   - Path to your ETS2 game directory (inside CrossOver)
-   - Path to your Wine prefix
-4. Select your preferred translator and hit **Launch**.
- 
----
- 
-## How It Works **PLACEHOLDER**
- 
-The launcher acts as a graphical front-end for `truckersmp-cli`. When you hit launch, it:
- 
-1. Launches a command that was sent in TruckersmpCli discussions bit modified
-2. TO BE DONE LATER
----
- 
-## Known Issues
- 
-- Reflections may appear pink or washed out on **DXMT** or **D3DMetal** (more worse than dxmt) **Workaround** is to put your reflection quality to High or more less than medium will cause them to appear
 
-  *might get fixed in the future by a DXMT update or D3DMetal update or TruckersMp update*
+## Setup
 
-- VC does not work it does access the microphone but refues to work **keep in mind** minimal testing was done on this part so it might work for you
+1. Launch the app — it will try to **auto-detect** all paths on first run. Detection badges in the sidebar show what was found.
+2. If anything is missing, use the **Browse** buttons in Settings to set paths manually:
+   - **truckersmp-cli path** — usually `/opt/homebrew/bin/truckersmp-cli` or `~/.local/bin/truckersmp-cli`
+   - **Wine (CrossOver) path** — inside `/Applications/CrossOver.app/...`; use `wine64` if available
+   - **Bottle path** — your CrossOver bottle with Steam + ETS2 installed (usually named "Steam")
+   - **Steam directory** — the Steam folder inside the bottle (auto-detected from the bottle path)
+   - **Game directory** — the ETS2 folder inside the bottle (auto-detected from the Steam dir)
+3. Select your preferred **translator** (D3DMetal is recommended on Apple Silicon).
+4. Hit **Launch**.
 
-- The Offical Disocrd RPC by truckersmp does not work due to it being targetted to windows the app incudles a custom made one it shows the game, logging in or in game, Truckersmp logo and name **it does not support** saying exact Truck/Car model or Near: location
+### Installing truckersmp-cli
 
- 
+```bash
+pip3 install truckersmp-cli
+```
+
+If `pip3` isn't available, install Python 3 from [python.org](https://www.python.org/downloads/) first, then reinstall. You can also use `pipx install truckersmp-cli`.
+
 ---
- 
-## Credits
- 
-- [**truckersmp-cli**](https://github.com/truckersmp-cli/truckersmp-cli) — The backbone of this launcher. All the actual game launching logic is powered by this tool.
-- [**CrossOver** by CodeWeavers](https://www.codeweavers.com/crossover) — Makes running ETS2 on macOS possible via Wine and its Translators.
-- **AI assistance** — This project started as a personal idea just to see if TruckersMP could even run on a Mac. It was never really meant to become a full release. AI was used to assist me into bringing that idea to reality — it wasn't something built with the intention of publishing from the start so the assistance helped turn a fun experiment into something actually shareable.
- 
+
+## Discord Rich Presence Setup
+
+1. Create a free app at [discord.com/developers/applications](https://discord.com/developers/applications)
+2. Name it "TruckersMP" and add the TruckersMP logo as an image asset named `truckersmp`
+3. Paste the **Client ID** into Settings → Discord Application ID
+4. Customise the status text fields as desired
+5. Hit **▶ Test it!** to verify before launching
+
 ---
- 
-## ⚠️ Disclaimer
- 
-This project is unofficial and not affiliated with TruckersMP or CodeWeavers in any way Use at your own risk.
+
+## Troubleshooting
+
+**truckersmp-cli not found**
+Run `pip3 install truckersmp-cli`, then click **↻ Re-detect** in the sidebar. You can also click **⚕ Diagnose CLI** for a detailed diagnostic report.
+
+**Game launches but crashes immediately**
+Try switching translators (e.g. D3DMetal → DXVK). The live log highlights known errors with suggested fixes inline.
+
+**Wine processes linger after stopping**
+Use **Force Kill** from the sidebar. As a last resort.
+
+**Discord RPC not working**
+Make sure Discord is running before launching the game. Use **▶ Test it!** to verify. Check that your Application ID is correct and the `truckersmp` image asset exists in your Discord app.
+
+---
+
+
+## Contributing
+
+PRs and issues welcome. If you hit a crash or a path detection failure, please open an issue and include the contents of the log panel and the debug bar output.
+
+---
+
+## License
+
+MIT
