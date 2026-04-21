@@ -2,7 +2,9 @@
 
 A native macOS GUI launcher for [TruckersMP](https://truckersmp.com) — the Euro Truck Simulator 2 multiplayer mod — built with Electron. Wraps [truckersmp-cli](https://github.com/truckersmp-cli/truckersmp-cli) and [CrossOver](https://www.codeweavers.com/crossover) Wine into a clean, dark interface so you can get into the game without touching a terminal.
 
-![App Icon](icon.png)
+<p align="center">
+  <img src="icon.png" width="128" alt="App Icon">
+</p>
 
 ---
 
@@ -11,11 +13,12 @@ A native macOS GUI launcher for [TruckersMP](https://truckersmp.com) — the Eur
 ### Launch & Game Control
 - **One-click launch** into TruckersMP multiplayer or ETS2 singleplayer
 - **macOS / Official mode toggle** — switch between the macOS-optimised launch path and the official Wine path
-- **Stop / Force Kill** — correctly terminates Wine processes via `wineserver -k`; Force Kill kills all Wine-related processes (`wine64`, `wineserver`, `wine-preloader`, `eurotrucks2.exe`)
+- **Stop / Force Kill** — correctly terminates Wine processes via `wineserver -k`; Force Kill nukes all Wine-related processes (`wine64`, `wineserver`, `wine-preloader`, `eurotrucks2.exe`)
+- **Steam control** — start Steam in the bottle with one click, stop it just as easily; live status indicator turns the button red while Steam is running
 
-### Graphics Translators (DOES NOT WORK WILL BE REPLACED LATER!!! PLACEHOLDER!)
-- **D3DMetal** (Apple) — Apple's own DX11 → Metal translator bundled with CrossOver | HIGH MEMORY USAGE ⚠️
-- **DXMT** (Community) — DX11 → Metal, actively maintained | RECOMMENDED | MODERATE RAM USAGE 
+### Graphics Translators _(work in progress — placeholder UI, real switching coming later)_
+- **D3DMetal** (Apple) — Apple's own DX11 → Metal translator bundled with CrossOver | high memory usage ⚠️
+- **DXMT** (Community) — DX11 → Metal, actively maintained | recommended | moderate RAM usage
 - **DXVK** (Community) — DX9/10/11 → Vulkan → Metal
 - **Auto version detection** reads translator versions directly from the CrossOver binary — no Xcode Command Line Tools required
 - **Env vars preview** shows the exact environment variables that will be set for the selected translator
@@ -29,12 +32,24 @@ A native macOS GUI launcher for [TruckersMP](https://truckersmp.com) — the Eur
 ### Live Log Viewer
 - **Real-time log streaming** with colour-coded output (info / warn / error / success / system)
 - **Filter bar** to search log output on the fly
-- **Timestamps** toggle and **auto-scroll** toggle
+- **Timestamps** and **auto-scroll** toggles
 - **Clear** button to reset the log
 
 ### TruckersMP Server Status
-- **Live server list** pulled from the TMP API — shows player count and server status
-- **Auto-refreshes every 60 seconds**, with a manual Refresh button
+- **Live server list** pulled from the TMP API — shows player count, queue size, and online status
+- **Favourites** — star your main servers; favourites pin to the top of the list
+- **Live ping** — TCP connect time to each server's game port, colour-coded (green < 60ms, yellow < 150ms, red beyond)
+- **Queue warning banner** appears under the server list when any server has players waiting
+- **Maintenance hint** when all servers are offline
+- **Auto-refresh** on a configurable interval, plus manual refresh button
+
+### TMP Info & Events
+- **In-game time, latest TMP version, supported ETS2 version** at a glance
+- **Upcoming events** list pulled from the TMP API with date, type, and server
+
+### Player Finder
+- **Look up any TruckersMP player by ID** — shows avatar, ban count, VTC affiliation, and join year
+- Lives in the right sidebar — always one click away
 
 ### Discord Rich Presence
 - **Enable/disable Discord RPC** with a checkbox
@@ -45,20 +60,24 @@ A native macOS GUI launcher for [TruckersMP](https://truckersmp.com) — the Eur
 ### Other Settings
 - **Singleplayer mode** — bypasses TruckersMP login and launches ETS2 directly
 - **Metal HUD overlay** — shows GPU/CPU stats in-game; works with any translator
-- **Animated background** — subtle colour blob animations with frosted glass; auto-pauses while the game is running
+- **Cool UI** — frosted-glass dark theme with a soft red glow; toggle off if you prefer a plain look
+- **Pause data refresh when unfocused** — saves CPU when the launcher is in the background
+- **Show debug bar** — real-time internal diagnostics with full history (⧉ icon opens history overlay)
 - **Extra CLI arguments** field for power users
 - **Command preview** panel — shows the exact command that will be run, with a Copy button
 - **Settings persistence** at `~/.config/truckersmp-launcher/settings.json`
 - **Uninstall section** — remove `truckersmp-cli` or wipe launcher settings without leaving the app
 - **About tab** with version info and dependency credits
-- **Debug bar** for real-time internal diagnostics
 
 ### Keyboard Shortcuts
 | Shortcut | Action |
 |---|---|
 | `⌘L` | Launch game |
 | `⌘.` | Stop game |
+| `⌘S` | Start / Stop Steam |
+| `⌘R` | Refresh server status |
 | `⌘K` | Clear log |
+| `⌘,` | Open Settings tab |
 
 ---
 
@@ -66,7 +85,7 @@ A native macOS GUI launcher for [TruckersMP](https://truckersmp.com) — the Eur
 
 | Dependency | Notes |
 |---|---|
-| macOS | Apple Silicon recommended (required for D3DMetal / GPTK) |
+| macOS 12+ | Apple Silicon recommended (required for D3DMetal / GPTK) |
 | [CrossOver](https://www.codeweavers.com/crossover) | Wine runtime — free trial available |
 | [truckersmp-cli](https://github.com/truckersmp-cli/truckersmp-cli) | Install via `pip3 install truckersmp-cli` |
 | Euro Truck Simulator 2 | Must be installed inside a CrossOver bottle via Steam |
@@ -114,13 +133,18 @@ Run `pip3 install truckersmp-cli`, then click **↻ Re-detect** in the sidebar. 
 Try switching translators (e.g. D3DMetal → DXVK). The live log highlights known errors with suggested fixes inline.
 
 **Wine processes linger after stopping**
-Use **Force Kill** from the sidebar. As a last resort.
+Use **Force Kill** from the sidebar — it kills every Wine-related process. As a last resort.
 
 **Discord RPC not working**
 Make sure Discord is running before launching the game. Use **▶ Test it!** to verify. Check that your Application ID is correct and the `truckersmp` image asset exists in your Discord app.
 
----
+**Server pings show "—"**
+Some networks block outbound connections to game ports. The pings use a TCP handshake to the server's listed IP and port; if your firewall or ISP blocks those, no value will appear (this does not affect actually playing).
 
+**The UI feels laggy**
+Turn off **Cool UI** in Settings → Launcher Options. The frosted-glass blur is GPU-bound and can stutter on older Macs.
+
+---
 
 ## Contributing
 
