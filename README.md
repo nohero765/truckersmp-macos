@@ -3,7 +3,7 @@
 A native macOS GUI launcher for [TruckersMP](https://truckersmp.com) — the Euro Truck Simulator 2 multiplayer mod — built with Electron. Wraps [truckersmp-cli](https://github.com/truckersmp-cli/truckersmp-cli) and [CrossOver](https://www.codeweavers.com/crossover) Wine into a clean, dark interface so you can get into the game without touching a terminal.
 
 <p align="center">
-  <img src="icon" width="128" alt="App Icon">
+  <img src="icon.png" width="128" alt="App Icon">
 </p>
 
 ---
