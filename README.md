@@ -21,13 +21,13 @@ A native macOS GUI launcher for [TruckersMP](https://truckersmp.com) — the Eur
 - **DXMT** (Community) — DX11 → Metal, actively maintained | recommended | moderate memory usage
 - **DXVK** (Community) — DX9/10/11 → Vulkan → Metal
 - **Auto version detection** reads translator versions directly from the CrossOver binary — no Xcode Command Line Tools required
-- **Env vars preview** shows the exact environment variables that will be set for the selected translator
 
 ### Path Management
 - **Auto-detect** for `truckersmp-cli`, CrossOver Wine, Bottle, Steam directory, and game directory
 - **Detection badges** (Found / Not found) with manual override indicators
 - **Browse buttons** and **Reveal in Finder** for all paths
 - **↻ Re-detect** and **⚕ Diagnose CLI** buttons for troubleshooting
+- **Env vars preview** shows the exact environment variables that will be set for the selected translator
 
 ### Live Log Viewer
 - **Real-time log streaming** with colour-coded output (info / warn / error / success / system)
