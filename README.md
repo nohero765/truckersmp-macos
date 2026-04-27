@@ -18,7 +18,7 @@ A native macOS GUI launcher for [TruckersMP](https://truckersmp.com) — the Eur
 
 ### Graphics Translators _(work in progress — placeholder UI, real switching coming later)_
 - **D3DMetal** (Apple) — Apple's own DX11 → Metal translator bundled with CrossOver | high memory usage ⚠️
-- **DXMT** (Community) — DX11 → Metal, actively maintained | recommended | moderate RAM usage
+- **DXMT** (Community) — DX11 → Metal, actively maintained | recommended | moderate memory usage
 - **DXVK** (Community) — DX9/10/11 → Vulkan → Metal
 - **Auto version detection** reads translator versions directly from the CrossOver binary — no Xcode Command Line Tools required
 - **Env vars preview** shows the exact environment variables that will be set for the selected translator
@@ -130,20 +130,13 @@ If `pip3` isn't available, install Python 3 from [python.org](https://www.python
 Run `pip3 install truckersmp-cli`, then click **↻ Re-detect** in the sidebar. You can also click **⚕ Diagnose CLI** for a detailed diagnostic report.
 
 **Game launches but crashes immediately**
-Try switching translators (e.g. D3DMetal → DXVK). The live log highlights known errors with suggested fixes inline.
+Try switching translators (e.g. DXMT → DXVK → D3DMetal) in crossover. The live log highlights known errors with suggested fixes inline.
 
 **Wine processes linger after stopping**
-Use **Force Kill** from the sidebar — it kills every Wine-related process. As a last resort.
+Use **Force Kill** from the sidebar it kills every Wine-related process. As a last resort.
 
 **Discord RPC not working**
-Make sure Discord is running before launching the game. Use **▶ Test it!** to verify. Check that your Application ID is correct and the `truckersmp` image asset exists in your Discord app.
-
-**Server pings show "—"**
-Some networks block outbound connections to game ports. The pings use a TCP handshake to the server's listed IP and port; if your firewall or ISP blocks those, no value will appear (this does not affect actually playing).
-
-**The UI feels laggy**
-Turn off **Cool UI** in Settings → Launcher Options. The frosted-glass blur is GPU-bound and can stutter on older Macs.
-
+Make sure Discord is running before launching the game. Use **▶ Test it!** to verify. Check that your Application ID is correct.
 ---
 
 ## Contributing
