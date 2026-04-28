@@ -38,8 +38,6 @@ A native macOS GUI launcher for [TruckersMP](https://truckersmp.com) — the Eur
 ### TruckersMP Server Status
 - **Live server list** pulled from the TMP API — shows player count, queue size, and online status
 - **Favourites** — star your main servers; favourites pin to the top of the list
-- **Live ping** — TCP connect time to each server's game port, colour-coded (green < 60ms, yellow < 150ms, red beyond)
-- **Queue warning banner** appears under the server list when any server has players waiting
 - **Maintenance hint** when all servers are offline
 - **Auto-refresh** on a configurable interval, plus manual refresh button
 
