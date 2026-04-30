@@ -12,22 +12,20 @@ A native macOS GUI launcher for [TruckersMP](https://truckersmp.com) — the Eur
 
 ### Launch & Game Control
 - **One-click launch** into TruckersMP multiplayer or ETS2 singleplayer
-- **macOS / Official mode toggle** — switch between the macOS-optimised launch path and the official Wine path
-- **Stop / Force Kill** — correctly terminates Wine processes via `wineserver -k`; Force Kill nukes all Wine-related processes (`wine64`, `wineserver`, `wine-preloader`, `eurotrucks2.exe`)
-- **Steam control** — start Steam in the bottle with one click, stop it just as easily; live status indicator turns the button red while Steam is running
-
-### Graphics Translators _(work in progress — placeholder UI, real switching coming later)_
+- **Stop / Force Kill** — correctly terminates all Wine processes
+- **Steam control** — start Steam in the bottle with one click, stop it just as easily
+### Graphics Translators _(work in progress — standalone wine coming soon)_
 - **D3DMetal** (Apple) — Apple's own DX11 → Metal translator bundled with CrossOver | high memory usage ⚠️
 - **DXMT** (Community) — DX11 → Metal, actively maintained | recommended | moderate memory usage
 - **DXVK** (Community) — DX9/10/11 → Vulkan → Metal
-- **Auto version detection** reads translator versions directly from the CrossOver binary — no Xcode Command Line Tools required
+- **Auto version detection**
 
 ### Path Management
 - **Auto-detect** for `truckersmp-cli`, CrossOver Wine, Bottle, Steam directory, and game directory
 - **Detection badges** (Found / Not found) with manual override indicators
 - **Browse buttons** and **Reveal in Finder** for all paths
-- **↻ Re-detect** and **⚕ Diagnose CLI** buttons for troubleshooting
-- **Env vars preview** shows the exact environment variables that will be set for the selected translator
+- **↻ Re-detect** 
+- **Env vars preview** shows the exact environment variables
 
 ### Live Log Viewer
 - **Real-time log streaming** with colour-coded output (info / warn / error / success / system)
@@ -36,7 +34,7 @@ A native macOS GUI launcher for [TruckersMP](https://truckersmp.com) — the Eur
 - **Clear** button to reset the log
 
 ### TruckersMP Server Status
-- **Live server list** pulled from the TMP API — shows player count, queue size, and online status
+- **Live server list** pulled from the TMP API — shows player count and server status
 - **Favourites** — star your main servers; favourites pin to the top of the list
 - **Maintenance hint** when all servers are offline
 - **Auto-refresh** on a configurable interval, plus manual refresh button
@@ -45,12 +43,12 @@ A native macOS GUI launcher for [TruckersMP](https://truckersmp.com) — the Eur
 - **In-game time, latest TMP version, supported ETS2 version** at a glance
 - **Upcoming events** list pulled from the TMP API with date, type, and server
 
-### Player Finder
+### Player Finder _(might be removed)_
 - **Look up any TruckersMP player by ID** — shows avatar, ban count, VTC affiliation, and join year
 - Lives in the right sidebar — always one click away
 
 ### Discord Rich Presence
-- **Enable/disable Discord RPC** with a checkbox
+- **Enable/disable Discord RPC**
 - **Custom Discord Application ID** — bring your own Discord app for a personalised status
 - **Customisable RPC fields**: login text, in-game text, state line, large image key and tooltip
 - **▶ Test it!** button to verify your RPC setup before launching
@@ -58,10 +56,9 @@ A native macOS GUI launcher for [TruckersMP](https://truckersmp.com) — the Eur
 ### Other Settings
 - **Singleplayer mode** — bypasses TruckersMP login and launches ETS2 directly
 - **Metal HUD overlay** — shows GPU/CPU stats in-game; works with any translator
-- **Cool UI** — frosted-glass dark theme with a soft red glow; toggle off if you prefer a plain look
 - **Pause data refresh when unfocused** — saves CPU when the launcher is in the background
 - **Show debug bar** — real-time internal diagnostics with full history (⧉ icon opens history overlay)
-- **Extra CLI arguments** field for power users
+- **Extra CLI arguments** 
 - **Command preview** panel — shows the exact command that will be run, with a Copy button
 - **Settings persistence** at `~/.config/truckersmp-launcher/settings.json`
 - **Uninstall section** — remove `truckersmp-cli` or wipe launcher settings without leaving the app
@@ -83,8 +80,8 @@ A native macOS GUI launcher for [TruckersMP](https://truckersmp.com) — the Eur
 
 | Dependency | Notes |
 |---|---|
-| macOS 12+ | Apple Silicon recommended (required for D3DMetal / GPTK) |
-| [CrossOver](https://www.codeweavers.com/crossover) | Wine runtime — free trial available |
+| Apple Silicon recommended (required for D3DMetal / GPTK) |
+| [CrossOver](https://www.codeweavers.com/crossover) | Wine — free trial available |
 | [truckersmp-cli](https://github.com/truckersmp-cli/truckersmp-cli) | Install via `pip3 install truckersmp-cli` |
 | Euro Truck Simulator 2 | Must be installed inside a CrossOver bottle via Steam |
 
@@ -94,12 +91,12 @@ A native macOS GUI launcher for [TruckersMP](https://truckersmp.com) — the Eur
 
 1. Launch the app — it will try to **auto-detect** all paths on first run. Detection badges in the sidebar show what was found.
 2. If anything is missing, use the **Browse** buttons in Settings to set paths manually:
-   - **truckersmp-cli path** — usually `/opt/homebrew/bin/truckersmp-cli` or `~/.local/bin/truckersmp-cli`
-   - **Wine (CrossOver) path** — inside `/Applications/CrossOver.app/...`; use `wine64` if available
+   - **truckersmp-cli path** — usually `~/.local/bin/truckersmp-cli`
+   - **Wine (CrossOver) path** — inside `/Applications/CrossOver.app/...`
    - **Bottle path** — your CrossOver bottle with Steam + ETS2 installed (usually named "Steam")
    - **Steam directory** — the Steam folder inside the bottle (auto-detected from the bottle path)
    - **Game directory** — the ETS2 folder inside the bottle (auto-detected from the Steam dir)
-3. Select your preferred **translator** (D3DMetal is recommended on Apple Silicon).
+3. Select your preferred **translator** (DXMT is recommended on Apple Silicon).
 4. Hit **Launch**.
 
 ### Installing truckersmp-cli
