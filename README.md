@@ -1,7 +1,6 @@
 # TruckersMP for macOS 🚛
 
-A native macOS GUI launcher for [TruckersMP](https://truckersmp.com) — the Euro Truck Simulator 2 multiplayer mod — built with Electron. Wraps [truckersmp-cli](https://github.com/truckersmp-cli/truckersmp-cli) and [CrossOver](https://www.codeweavers.com/crossover) Wine into a clean, dark interface so you can get into the game without touching a terminal.
-
+A native macOS launcher for [TruckersMP](https://truckersmp.com) the ETS 2 multiplayer mod built with Electron.Under the hood it wraps [truckersmp-cli](https://github.com/truckersmp-cli/truckersmp-cli) and uses [CrossOvers](https://www.codeweavers.com/crossover) Wine to launch the game and handle everything.
 <p align="center">
   <img src="icon.png" width="128" alt="App Icon">
 </p>
@@ -17,7 +16,6 @@ A native macOS GUI launcher for [TruckersMP](https://truckersmp.com) — the Eur
 ### Graphics Translators _(work in progress — standalone wine coming soon)_
 - **D3DMetal** (Apple) — Apple's own DX11 → Metal translator bundled with CrossOver | high memory usage ⚠️
 - **DXMT** (Community) — DX11 → Metal, actively maintained | recommended | moderate memory usage
-- **DXVK** (Community) — DX9/10/11 → Vulkan → Metal
 - **Auto version detection**
 
 ### Path Management
@@ -139,6 +137,10 @@ Make sure Discord is running before launching the game. Use **▶ Test it!** to 
 PRs and issues welcome. If you hit a crash or a path detection failure, please open an issue and include the contents of the log panel and the debug bar output.
 
 ---
+
+## Acknowledgements
+This project was developed with AI assistance what started as an idea became a reality with its help.
+Inspired by [matyash12's unofficial TruckersMP macOS launcher](https://github.com/matyash12/unofficial-truckersmp-macos-launcher).
 
 ## License
 
