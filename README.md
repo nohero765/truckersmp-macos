@@ -78,7 +78,7 @@ A macOS launcher for [TruckersMP](https://truckersmp.com) the ETS 2 multiplayer 
 
 | Dependency | Notes |
 |---|---|
-| Apple Silicon recommended (required for D3DMetal / GPTK) |
+| Apple Silicon recommended (required for D3DMetal / DXMT) |
 | [CrossOver](https://www.codeweavers.com/crossover) | Wine — free trial available |
 | [truckersmp-cli](https://github.com/truckersmp-cli/truckersmp-cli) | Install via `pip3 install truckersmp-cli` |
 | Euro Truck Simulator 2 | Must be installed inside a CrossOver bottle via Steam |
@@ -97,7 +97,7 @@ A macOS launcher for [TruckersMP](https://truckersmp.com) the ETS 2 multiplayer 
 3. Select your preferred **translator** (DXMT is recommended on Apple Silicon).
 4. Hit **Launch**.
 
-### Installing truckersmp-cli
+### Installing truckersmp-cli (For now Truckersmp-cli is not inculded within the app)
 
 ```bash
 pip3 install truckersmp-cli
@@ -129,7 +129,12 @@ Try switching translators (e.g. DXMT → DXVK → D3DMetal) in crossover. The li
 Use **Force Kill** from the sidebar it kills every Wine-related process. As a last resort.
 
 **Discord RPC not working**
-Make sure Discord is running before launching the game. Use **▶ Test it!** to verify. Check that your Application ID is correct.
+Make sure discord is running Use **Test it** button to make sure its displaying correctly
+
+
+**There is a slight pink shadow all over the truck and steering wheel**
+go into settings graphics option and make sure reflection quality is set to high. (Rendering bug sometimes gets fixed by itself either by a Truckersmp update or DXMT update)
+
 ---
 
 ## Contributing
