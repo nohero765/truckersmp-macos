@@ -95,7 +95,8 @@ A macOS launcher for [TruckersMP](https://truckersmp.com) the ETS2 multiplayer m
    - **Steam directory** — the Steam folder inside the bottle (auto-detected from the bottle path)
    - **Game directory** — the ETS2 folder inside the bottle (auto-detected from the Steam dir)
 3. Select your preferred **translator** (DXMT is recommended on Apple Silicon).
-4. Hit **Launch**.
+4. Click on "Start Steam" wait for it to launch and start up.
+4. Hit **Launch ETS2MP**.
 
 ### Installing truckersmp-cli (For now Truckersmp-cli is not inculded within the app)
 
