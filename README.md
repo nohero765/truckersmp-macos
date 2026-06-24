@@ -1,6 +1,9 @@
 # TruckersMP for macOS 🚛
 
-A macOS launcher for [TruckersMP](https://truckersmp.com) the ETS2 multiplayer mod built with Electron. Under the hood it wraps [truckersmp-cli](https://github.com/truckersmp-cli/truckersmp-cli) and uses [CrossOver](https://www.codeweavers.com/crossover) Wine to launch the game and handle everything.
+A macOS launcher for [TruckersMP](https://truckersmp.com) — the ETS2 multiplayer mod — built with Electron. Under the hood it wraps [truckersmp-cli](https://github.com/truckersmp-cli/truckersmp-cli) and uses [CrossOver](https://www.codeweavers.com/crossover) Wine to launch the game and handle everything.
+
+> **Beta release — things are subject to change.**
+
 <p align="center">
   <img src="icon.png" width="128" alt="App Icon">
 </p>
@@ -13,16 +16,12 @@ A macOS launcher for [TruckersMP](https://truckersmp.com) the ETS2 multiplayer m
 - **One-click launch** into TruckersMP multiplayer or ETS2 singleplayer
 - **Stop / Force Kill** — correctly terminates all Wine processes
 - **Steam control** — start Steam in the bottle with one click, stop it just as easily
-### Graphics Translators _(work in progress — standalone wine coming soon)_
-- **D3DMetal** (Apple) — Apple's own DX11 → Metal translator bundled with CrossOver | high memory usage ⚠️
-- **DXMT** (Community) — DX11 → Metal, actively maintained | recommended | moderate memory usage
-- **Auto version detection**
 
 ### Path Management
 - **Auto-detect** for `truckersmp-cli`, CrossOver Wine, Bottle, Steam directory, and game directory
 - **Detection badges** (Found / Not found) with manual override indicators
 - **Browse buttons** and **Reveal in Finder** for all paths
-- **↻ Re-detect** 
+- **↻ Re-detect**
 - **Env vars preview** shows the exact environment variables
 
 ### Live Log Viewer
@@ -41,7 +40,7 @@ A macOS launcher for [TruckersMP](https://truckersmp.com) the ETS2 multiplayer m
 - **In-game time, latest TMP version, supported ETS2 version** at a glance
 - **Upcoming events** list pulled from the TMP API with date, type, and server
 
-### Player Finder _(might be removed)_
+### Player Finder
 - **Look up any TruckersMP player by ID** — shows avatar, ban count, VTC affiliation, and join year
 - Lives in the right sidebar — always one click away
 
@@ -53,14 +52,14 @@ A macOS launcher for [TruckersMP](https://truckersmp.com) the ETS2 multiplayer m
 
 ### Other Settings
 - **Singleplayer mode** — bypasses TruckersMP login and launches ETS2 directly
-- **Metal HUD overlay** — shows GPU/CPU stats in-game; works with any translator
+- **Metal HUD overlay** — shows GPU/CPU stats in-game
 - **Pause data refresh when unfocused** — saves CPU when the launcher is in the background
 - **Show debug bar** — real-time internal diagnostics with full history (⧉ icon opens history overlay)
-- **Extra CLI arguments** 
+- **Extra CLI arguments**
 - **Command preview** panel — shows the exact command that will be run, with a Copy button
 - **Settings persistence** at `~/.config/truckersmp-launcher/settings.json`
 - **Uninstall section** — remove `truckersmp-cli` or wipe launcher settings without leaving the app
-- **About tab** with version info and dependency credits
+- **About tab** with version info and credits
 
 ### Keyboard Shortcuts
 | Shortcut | Action |
@@ -78,7 +77,7 @@ A macOS launcher for [TruckersMP](https://truckersmp.com) the ETS2 multiplayer m
 
 | Dependency | Notes |
 |---|---|
-| Apple Silicon recommended (required for D3DMetal / DXMT) |
+| Apple Silicon Mac | Required for D3DMetal / DXMT |
 | [CrossOver](https://www.codeweavers.com/crossover) | Wine — free trial available |
 | [truckersmp-cli](https://github.com/truckersmp-cli/truckersmp-cli) | Install via `pip3 install truckersmp-cli` |
 | Euro Truck Simulator 2 | Must be installed inside a CrossOver bottle via Steam |
@@ -86,7 +85,7 @@ A macOS launcher for [TruckersMP](https://truckersmp.com) the ETS2 multiplayer m
 ---
 
 ## Setup
-
+`Crossover Mode`
 1. Launch the app — it will try to **auto-detect** all paths on first run. Detection badges in the sidebar show what was found.
 2. If anything is missing, use the **Browse** buttons in Settings to set paths manually:
    - **truckersmp-cli path** — usually `~/.local/bin/truckersmp-cli`
@@ -94,17 +93,19 @@ A macOS launcher for [TruckersMP](https://truckersmp.com) the ETS2 multiplayer m
    - **Bottle path** — your CrossOver bottle with Steam + ETS2 installed (usually named "Steam")
    - **Steam directory** — the Steam folder inside the bottle (auto-detected from the bottle path)
    - **Game directory** — the ETS2 folder inside the bottle (auto-detected from the Steam dir)
-3. Select your preferred **translator** (DXMT is recommended on Apple Silicon).
-4. Click on "Start Steam" wait for it to launch and start up.
+3. Click the "Launch Steam" button wait for steam to startup.
 4. Hit **Launch ETS2MP**.
 
-### Installing truckersmp-cli (For now Truckersmp-cli is not inculded within the app)
+`Standalone Wine Mode`
+TODO
+
+### Installing truckersmp-cli
 
 ```bash
 pip3 install truckersmp-cli
 ```
 
-If `pip3` isn't available, install Python 3 from [python.org](https://www.python.org/downloads/) first, then reinstall. You can also use `pipx install truckersmp-cli`.
+If `pip3` isn't available, install Python 3 from [python.org](https://www.python.org/downloads/) first. You can also use `pipx install truckersmp-cli`.
 
 ---
 
@@ -124,17 +125,16 @@ If `pip3` isn't available, install Python 3 from [python.org](https://www.python
 Run `pip3 install truckersmp-cli`, then click **↻ Re-detect** in the sidebar. You can also click **⚕ Diagnose CLI** for a detailed diagnostic report.
 
 **Game launches but crashes immediately**
-Try switching translators (e.g. DXMT → DXVK → D3DMetal) in crossover. The live log highlights known errors with suggested fixes inline.
+Try switching translators in CrossOver settings (DXMT is recommended on Apple Silicon).
 
 **Wine processes linger after stopping**
-Use **Force Kill** from the sidebar it kills every Wine-related process. As a last resort.
+Use **Force Kill** from the sidebar — it kills every Wine-related process.
 
 **Discord RPC not working**
-Make sure discord is running Use **Test it** button to make sure its displaying correctly
+Make sure Discord is running. Use the **Test it!** button to confirm it's displaying correctly.
 
-
-**There is a slight pink shadow all over the truck and steering wheel**
-go into settings graphics option and make sure reflection quality is set to high. (Rendering bug sometimes gets fixed by itself either by a Truckersmp update or DXMT update)
+**Slight pink shadow on the truck / steering wheel**
+Go into ETS2 graphics settings and set reflection quality to High. This is a known rendering quirk that sometimes resolves itself after a TruckersMP or DXMT update.
 
 ---
 
@@ -145,7 +145,8 @@ PRs and issues welcome. If you hit a crash or a path detection failure, please o
 ---
 
 ## Acknowledgements
-This project was developed with AI assistance what started as an idea became a reality with its help.
+
+This project was developed with AI assistance — what started as an idea became a reality with its help.
 Inspired by [matyash12's unofficial TruckersMP macOS launcher](https://github.com/matyash12/unofficial-truckersmp-macos-launcher).
 
 ## License
