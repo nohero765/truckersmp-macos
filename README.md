@@ -29,7 +29,7 @@ Switch between backends per-game from the sidebar toggle:
 - **Browse buttons** and **Open Bottle in Finder**
 - **↻ Re-detect**
 
-### Standalone Wine Mode
+### Standalone 
 - **Setup Wizard** — installs the latest Wine build and DXMT release automatically.
 - **Wine version manager** — install multiple Wine builds side by side, mark one **active**, uninstall old ones
 - **Status checklist** — Wine installed / Bottle ready / DXMT version, each with a ✓
@@ -100,7 +100,7 @@ Defaults (all rebindable in Settings → Launcher Options):
 | Apple Silicon Mac | Required for [DXMT](https://github.com/3Shain/dxmt) |
 | [truckersmp-cli](https://github.com/truckersmp-cli/truckersmp-cli) | Install via `pip3 install truckersmp-cli` |
 | Euro Truck Simulator 2 | Must be installed via Steam inside a Wine bottle |
-| **Either:** [CrossOver](https://www.codeweavers.com/crossover) (free trial available) **or nothing else** | Standalone Wine mode manages its own Wine build — no CrossOver purchase/trial needed |
+| **Either:** [CrossOver](https://www.codeweavers.com/crossover) (free trial available) **or nothing else** | Standalone  manages its own Wine build — no CrossOver purchase/trial needed |
 
 > As of DXMT 0.72, experimental Intel Mac support was added — Apple Silicon is still recommended, but Intel Macs may work.
 
@@ -157,7 +157,7 @@ If you'd rather use your own Discord app instead of the built-in one:
 - **Advanced RPC** — shows truck + route, requires an ETS2 telemetry plugin
 
 > [!NOTE]
-> Telemetry / Advanced RPC hasn't been tested with ** Wine mode** yet. If you rely on this feature, use **CrossOver mode** for now —  Wine support is planned.
+> Telemetry / Advanced RPC hasn't been tested with ** Standalone Wine mode** yet. If you rely on this feature, use **CrossOver mode** for now —  Wine support is planned.
 ---
 
 ## Troubleshooting
