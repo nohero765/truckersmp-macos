@@ -157,7 +157,7 @@ If you'd rather use your own Discord app instead of the built-in one:
 - **Advanced RPC** — shows truck + route, requires an ETS2 telemetry plugin
 
 > [!NOTE]
-> Telemetry / Advanced RPC hasn't been tested with ** Standalone Wine mode** yet. If you rely on this feature, use **CrossOver mode** for now —  Wine support is planned.
+> Telemetry / Advanced RPC hasn't been tested with **Standalone Wine mode** yet. If you rely on this feature, use **CrossOver mode** for now —  Wine support is planned.
 ---
 
 ## Troubleshooting
