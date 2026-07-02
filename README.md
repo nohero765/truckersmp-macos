@@ -35,7 +35,7 @@ Switch between backends per-game from the sidebar toggle:
 - **Status checklist** — Wine installed / Bottle ready / DXMT version, each with a ✓
 - **Bottle Path**, **Steam Directory inside bottle**, and **ETS2 Game Directory inside bottle**, independently configurable
 - **Launch winecfg** and **Reinstall DXMT** shortcuts
-- **Wine Command runner** — run arbitrary Wine commands (e.g. `regedit`, `explorer`) directly against the bottle
+- **Wine Command runner** — run Wine commands (e.g. `regedit`, `explorer`) directly to the bottle
 - **Wine Log** — toggleable debug logging with **Open in Finder**
 
 ### Live Log Viewer
@@ -54,7 +54,7 @@ Switch between backends per-game from the sidebar toggle:
 - **In-game time, latest TMP version, supported ETS2 version** at a glance, with manual refresh
 - **Upcoming events** list pulled from the TMP API with date, type, and server
 
-### Player Finder
+### Player Finder -Might get removed in a future build- S
 - **Look up any TruckersMP player by numeric ID** — shows avatar, ban count, VTC affiliation, and join year
 - Lives in the right sidebar — always one click away
 
