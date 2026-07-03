@@ -157,7 +157,7 @@ If you'd rather use your own Discord app instead of the built-in one:
 - **Advanced RPC** — shows truck + route, requires an ETS2 telemetry plugin
 
 > [!NOTE]
-> Telemetry / Advanced RPC hasn't been tested with **Standalone Wine mode** yet. If you rely on this feature, use **CrossOver mode** for now —  Wine support is planned.
+> Telemetry / Advanced RPC hasn't been tested with **Standalone Wine mode** yet. If you rely on this feature, use **CrossOver mode** for now —  StandAlone Wine support is planned.
 ---
 
 ## Troubleshooting
@@ -179,6 +179,22 @@ Go into ETS2 graphics settings and set reflection quality to High. This is a kno
 
 ---
 
+## Uninstalling
+
+The in-app **Reset & Uninstall** button (Settings → About) only clears `~/.config/truckersmp-launcher/`. To fully remove the app, delete these three locations:
+
+1. **The app itself**
+   - `/Applications/TruckersMP-Launcher.app`
+
+2. **App support data** (Wine builds, bottles, DXMT, wizard state)
+   - `~/Library/Application Support/TruckersMP-Launcher`
+
+3. **Launcher config** (settings, keybinds, saved paths)
+   - `~/.config/truckersmp-launcher`
+
+> [!WARNING]
+> This permanently deletes any installed Wine builds and bottles under Standalone Wine mode.
+---
 ## Contributing
 
 PRs and issues welcome. If you hit a crash or a path detection failure, please open an issue and include the contents of the log panel (and Wine Log, if using Standalone Wine mode).
