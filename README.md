@@ -157,7 +157,7 @@ If you'd rather use your own Discord app instead of the built-in one:
 - **Advanced RPC** — shows truck + route, requires an ETS2 telemetry plugin
 
 > [!NOTE]
-> Telemetry / Advanced RPC hasn't been tested with **Standalone Wine mode** yet. If you rely on this feature, use **CrossOver mode** for now —  StandAlone Wine support is planned.
+> Telemetry / Advanced RPC hasn't been tested with **Standalone Wine mode** yet. If you rely on this feature use **CrossOver mode** for now StandAlone Wine support is planned.
 ---
 
 ## Troubleshooting
@@ -166,7 +166,7 @@ If you'd rather use your own Discord app instead of the built-in one:
 Run `pip3 install truckersmp-cli`, then click **↻ Re-detect** in the sidebar.
 
 **Game launches but crashes immediately**
-On CrossOver, try switching translators (DXMT is recommended on Apple Silicon). On Standalone Wine, use **Wine Diagnostics** in Settings to test your setup, or try **Reinstall DXMT**.
+On CrossOver, try switching translators (DXMT is recommended on Apple Silicon). On Standalone Wine, use **Wine Diagnostics** in Settings to test your setup, or try **Reinstalling DXMT** or **deleting bottle** and starting setup from scratch
 
 **Wine processes linger after stopping**
 Use **Kill All** in the Wine Activity panel — it kills every Wine-related process.
@@ -176,6 +176,12 @@ Make sure Discord is running, and that your Application ID is correct.
 
 **Slight pink shadow on the truck / steering wheel**
 Go into ETS2 graphics settings and set reflection quality to High. This is a known rendering quirk that sometimes resolves itself after a TruckersMP or DXMT update.
+
+**I keep getting "wine discord ipc bridge has encountered a serious problem"**
+either disable discord rpc in settings (disables also the launchers custom rpc) or run TruckersMP and in settings disable discord rpc.
+
+**when trying to use the ingame radio my game freezes**
+make sure in wine configuration (winecfg) that your microphone is set to your macbook microphone or headphones and not system default
 
 ---
 
