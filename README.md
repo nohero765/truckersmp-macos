@@ -190,16 +190,16 @@ make sure in wine configuration (winecfg) that your microphone is set to your ma
 The in-app **Reset & Uninstall** button (Settings → About) only clears `~/.config/truckersmp-launcher/`. To fully remove the app, delete these three locations:
 
 1. **The app itself**
-   - `/Applications/TruckersMP-Launcher.app`
+   - `/Applications/TruckersMP For macOS.app`
 
-2. **App support data** (Wine builds, bottles, DXMT, wizard state)
+2. **App data** (Wine builds, bottles, DXMT)
    - `~/Library/Application Support/TruckersMP-Launcher`
 
 3. **Launcher config** (settings, keybinds, saved paths)
    - `~/.config/truckersmp-launcher`
 
 > [!WARNING]
-> This permanently deletes any installed Wine builds and bottles under Standalone Wine mode.
+> This permanently deletes any installed Wine builds and bottles.
 ---
 ## Contributing
 
