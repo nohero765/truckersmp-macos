@@ -1,0 +1,46 @@
+{
+  "name": "truckersmp-launcher",
+  "productName": "TruckersMP for macOS",
+  "version": "2.0.0-beta",
+  "description": "macOS GUI launcher for TruckersMP via truckersmp-cli + CrossOver",
+  "author": "nohero765",
+  "license": "MIT",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder --mac --arm64",
+    "build:x64": "electron-builder --mac --x64"
+  },
+  "devDependencies": {
+    "electron": "^29.4.6",
+    "electron-builder": "^26.8.1"
+  },
+  "build": {
+    "appId": "com.nohero.truckersmp-launcher",
+    "productName": "TruckersMP for macOS",
+    "defaultArch": "arm64",
+    "mac": {
+      "category": "public.app-category.utilities",
+      "icon": "icon.png",
+      "target": [
+        { "target": "dmg", "arch": ["arm64"] }
+      ]
+    },
+    "dmg": {
+      "title": "TruckersMP for macOS",
+      "background": null,
+      "window": { "width": 540, "height": 380 }
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "icon.png",
+      "src/**/*",
+      "!src/.DS_Store",
+      "!**/.DS_Store"
+    ],
+    "extraMetadata": {
+      "version": "2.0.0-beta"
+    }
+  }
+}

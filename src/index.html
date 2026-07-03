@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' data:; style-src 'self' 'unsafe-inline'; font-src data:; img-src 'self' data: https:; script-src 'self'; connect-src 'none'"/>
+<title>TruckersMP for macOS</title>
+<link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+
+<aside class="sidebar">
+  <div class="sidebar-header">
+    <div class="logo-block">
+      <img src="logo-dark.png" class="logo-img logo-icon"/>
+      <div class="logo-text">
+        <span class="logo-title">TruckersMP</span>
+        <span class="logo-sub">for macOS</span>
+      </div>
+      <div class="header-icons">
+        <button class="header-icon-btn header-log-btn" id="btn-header-log" title="Switch to Telemetry" style="display:flex;align-items:center;gap:4px;padding:4px 8px;font-size:11px;font-weight:600;border-radius:6px">
+          <svg id="header-log-icon" viewBox="0 0 20 20" width="13" fill="currentColor"><path fill-rule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h7a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h4a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"/></svg>
+          <span id="header-log-label">Log</span>
+        </button>
+        <button class="header-icon-btn" id="btn-header-settings" title="Settings">
+          <svg viewBox="0 0 20 20" width="15" fill="currentColor"><path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd"/></svg>
+        </button>
+        <button class="header-icon-btn" id="btn-header-about" title="About" style="position:relative">
+          <svg viewBox="0 0 20 20" width="15" fill="currentColor"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/></svg>
+          <span id="update-badge" class="update-badge" style="display:none"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-label">STATUS</div>
+  <div class="card">
+    <div class="status-row">
+      <div class="status-dot idle" id="status-dot"></div>
+      <div>
+        <div class="status-label" id="status-label">Idle</div>
+        <div class="status-pid" id="status-pid"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-label">TRUCKERSMP SERVERS</div>
+  <div class="card" id="card-servers">
+    <div id="srv-state">
+      <div class="srv-loading" id="srv-loading">Checking servers…</div>
+      <div id="srv-list" class="hidden"></div>
+    </div>
+    <div class="srv-footer-row">
+      <span class="srv-updated" id="srv-updated"></span>
+      <button class="btn-ghost srv-refresh-btn" id="btn-refresh-srv">↻ Refresh</button>
+    </div>
+  </div>
+
+  <div class="section-label">DETECTION</div>
+  <div class="card">
+    <div class="det-row">
+      <img src="logo1.png" class="det-icon det-icon-img" id="det-wine-icon" title="CrossOver Wine" alt="CrossOver"/>
+      <span class="det-label" id="det-label-wine">CrossOver Wine</span>
+      <span class="det-badge" id="badge-crossover">—</span>
+      <span class="det-manual hidden" id="manual-wine" title="Path set manually">✎</span>
+    </div>
+    <div class="det-row">
+      <svg class="det-icon" viewBox="0 0 16 16" fill="none">
+      <rect x="2" y="2" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.5" fill="none"/>
+      <path d="M5 6l2 2-2 2M9 10h2" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+    </svg>
+      <span class="det-label">truckersmp-cli</span>
+      <span class="det-badge" id="badge-cli">—</span>
+      <span class="det-manual hidden" id="manual-cli" title="Path set manually">✎</span>
+    </div>
+    <div class="det-row">
+      <img src="logo2.png" class="det-icon det-icon-img" title="Steam" alt="Steam"/>
+      <span class="det-label">Steam Directory</span>
+      <span class="det-badge" id="badge-steam">—</span>
+      <span class="det-manual hidden" id="manual-steam" title="Path set manually">✎</span>
+    </div>
+    <div class="det-row">
+      <svg class="det-icon" viewBox="0 0 16 16" fill="none" title="Game Directory">
+      <path d="M2 5a1 1 0 011-1h3.5l1 1.5H13a1 1 0 011 1V12a1 1 0 01-1 1H3a1 1 0 01-1-1V5z" stroke="currentColor" stroke-width="1.3" fill="none" stroke-linejoin="round"/>
+    </svg>
+      <span class="det-label">Game Directory</span>
+      <span class="det-badge" id="badge-game">—</span>
+      <span class="det-manual hidden" id="manual-game" title="Path set manually">✎</span>
+    </div>
+    <div class="det-btn-row">
+      <button class="btn-ghost" id="btn-detect">↻ Re-detect</button>
+    </div>
+  </div>
+
+  <div class="section-label">EURO TRUCK SIMULATOR 2</div>
+  <div class="card">
+    <div class="game-name">✿ ETS2 Multiplayer ✿</div>
+    <div class="game-via" id="game-via">
+      <img src="logo1.png" class="game-via-icon" id="game-via-icon" alt="Wine"/>
+      <span id="game-via-label">via CrossOver Wine</span>
+    </div>
+    <div class="card-wine-toggle">
+      <button class="card-wine-btn active" id="cwt-cx">CrossOver</button>
+      <button class="card-wine-btn" id="cwt-sw">Standalone Wine</button>
+    </div>
+    <div class="wine-card-badge hidden" id="wine-card-badge"></div>
+
+    <div class="wine-opts-sidebar">
+      <label class="s-check" style="font-size:11.5px"><input type="checkbox" id="s-retina-mode"/> Retina Mode</label>
+      <label class="s-check" style="font-size:11.5px;margin-top:4px"><input type="checkbox" id="s-metal-hud-sw"/> Metal HUD overlay</label>
+    </div>
+
+    <button class="btn-steam" id="btn-steam" disabled>
+      <svg class="steam-icon" viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M11.979 0C5.678 0 .511 4.86.022 11.037l6.432 2.658c.545-.371 1.203-.59 1.912-.59.063 0 .125.004.188.006l2.861-4.142V8.91c0-2.495 2.028-4.524 4.524-4.524 2.494 0 4.524 2.029 4.524 4.524s-2.03 4.525-4.524 4.525h-.105l-4.076 2.911c0 .052.004.105.004.159 0 1.875-1.515 3.396-3.39 3.396-1.635 0-3.016-1.173-3.331-2.727L.436 15.27C1.862 20.307 6.486 24 11.979 24c6.627 0 11.999-5.373 11.999-12S18.605 0 11.979 0zM7.54 18.21l-1.473-.61c.262.543.714.999 1.314 1.25 1.297.539 2.793-.076 3.332-1.375.263-.63.264-1.319.005-1.949s-.75-1.121-1.377-1.383c-.624-.26-1.29-.249-1.878-.03l1.523.63c.956.4 1.409 1.497 1.009 2.452-.397.957-1.497 1.41-2.455 1.015zm11.415-9.303c0-1.662-1.353-3.015-3.015-3.015-1.665 0-3.015 1.353-3.015 3.015 0 1.665 1.35 3.015 3.015 3.015 1.663 0 3.015-1.35 3.015-3.015zm-5.273-.005c0-1.252 1.013-2.266 2.265-2.266 1.249 0 2.266 1.014 2.266 2.266 0 1.251-1.017 2.265-2.266 2.265-1.252 0-2.265-1.014-2.265-2.265z"/></svg>
+      Start Steam
+    </button>
+    <button class="btn-launch" id="btn-launch" disabled>
+      <span id="launch-icon">▶</span>
+      <span id="launch-text">Launch ETS2 MP</span>
+    </button>
+    <button class="btn-forcekill hidden" id="btn-forcekill">☠ Force Kill Wine</button>
+    <div class="launch-warn" id="launch-warn">⚠ Configure paths in Settings first</div>
+  </div>
+
+  <div id="cmd-preview-section">
+    <div class="section-label">COMMAND PREVIEW</div>
+    <div class="card">
+      <div class="cmd-text" id="cmd-preview">truckersmp-cli (not configured)</div>
+      <button class="btn-copy" id="btn-copy">Copy</button>
+    </div>
+  </div>
+
+  <div class="sidebar-spacer"></div>
+  <div class="sidebar-footer">
+    <span class="line-count" id="line-count">0 lines</span>
+  </div>
+</aside>
+
+<main class="main-panel">
+
+  <!-- Drag strip so the user can move the window from anywhere on top -->
+  <div class="drag-strip" aria-hidden="true"></div>
+
+  <!-- LOG -->
+  <div class="panel active" id="panel-log">
+    <div class="log-toolbar">
+      <div class="search-box">
+        <svg viewBox="0 0 16 16" width="13" fill="none"><circle cx="6.5" cy="6.5" r="5" stroke="currentColor" stroke-width="1.5"/><path d="M10.5 10.5L14 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <input type="text" id="log-filter" placeholder="Filter output…" spellcheck="false"/>
+        <button class="fclear hidden" id="filter-clear">✕</button>
+      </div>
+      <div class="toolbar-right">
+        <div class="log-cat-btns">
+          <button class="log-cat-btn active" id="log-cat-all">All</button>
+          <button class="log-cat-btn" id="log-cat-wine">Wine</button>
+          <button class="log-cat-btn" id="log-cat-launcher">Launcher</button>
+        </div>
+        <label class="tog-label"><input type="checkbox" id="tog-ts"/> Timestamps</label>
+        <label class="tog-label"><input type="checkbox" id="tog-scroll" checked/> Auto-scroll</label>
+        <button class="btn-sm" id="btn-clear-log">Clear</button>
+      </div>
+    </div>
+    <div class="log-body" id="log-body">
+      <div class="log-empty" id="log-empty">
+        <div class="log-empty-icon">⬛</div>
+        <div class="log-empty-title">No output yet</div>
+        <div class="log-empty-sub">Launch the game to stream logs here in real time</div>
+      </div>
+    </div>
+
+    <!-- Telemetry Info panel -->
+    <div class="telemetry-panel hidden" id="telemetry-panel">
+      <div class="telemetry-header">
+        <div class="telemetry-wip">⚙ WORK IN PROGRESS</div>
+        <div class="telemetry-title">Telemetry Info</div>
+        <div class="telemetry-status-row">
+          <div class="telemetry-status-dot" id="telem-status-dot"></div>
+          <span id="telem-status-lbl">Not connected</span>
+        </div>
+      </div>
+      <hr class="telemetry-divider"/>
+      <div class="telemetry-grid">
+        <div class="telem-card">
+          <span class="telem-icon">🚛</span>
+          <span class="telem-lbl">Speed</span>
+          <span class="telem-val" id="telem-speed">—</span>
+          <span style="font-size:9px;color:var(--text-muted)">km/h</span>
+        </div>
+        <div class="telem-card">
+          <span class="telem-icon">🚚</span>
+          <span class="telem-lbl">Truck</span>
+          <span class="telem-val" id="telem-model" style="font-size:11px">—</span>
+        </div>
+        <div class="telem-card">
+          <span class="telem-icon">📍</span>
+          <span class="telem-lbl">City</span>
+          <span class="telem-val" id="telem-city" style="font-size:11px">—</span>
+        </div>
+        <div class="telem-card">
+          <span class="telem-icon">⛽</span>
+          <span class="telem-lbl">Fuel</span>
+          <span class="telem-val" id="telem-fuel">—</span>
+          <span style="font-size:9px;color:var(--text-muted)">litres</span>
+        </div>
+        <div class="telem-card">
+          <span class="telem-icon">📦</span>
+          <span class="telem-lbl">Cargo</span>
+          <span class="telem-val" id="telem-cargo" style="font-size:11px">—</span>
+        </div>
+        <div class="telem-card">
+          <span class="telem-icon">🌡</span>
+          <span class="telem-lbl">Engine °C</span>
+          <span class="telem-val" id="telem-temp">—</span>
+          <span style="font-size:9px;color:var(--text-muted)">°C</span>
+        </div>
+      </div>
+      <div class="telemetry-note">Live telemetry streams when ETS2 is running and connected. This panel is under construction.</div>
+    </div>
+
+    <!-- Wine Activity — process monitor for running Wine instances -->
+    <div class="log-wine-section" id="log-wine-section">
+      <div class="log-wine-hdr">
+        <span class="log-section-label">Wine Activity</span>
+        <button class="btn-sm" id="btn-wine-proc-detail" title="Open Process Manager — full args &amp; per-process kill">🔍 Manage</button>
+        <button class="btn-sm" id="btn-kill-all-wine" style="color:#f87171;border-color:rgba(248,113,113,0.3)">⬛ Kill All</button>
+      </div>
+      <div id="wine-proc-list" style="font-size:11px;font-family:var(--font-mono,monospace);color:var(--text-secondary);line-height:1.7;min-height:22px;padding:0 12px 4px">
+        <span style="color:var(--text-muted)">Scanning for Wine processes…</span>
+      </div>
+      <div id="kill-wine-result" style="font-size:11px;padding:0 12px 6px;min-height:14px;color:var(--text-secondary)"></div>
+    </div>
+  </div>
+
+  <!-- Wine Process Manager Modal (opened by 🔍 button) -->
+  <div id="wine-proc-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.78);backdrop-filter:blur(6px);z-index:9999;align-items:flex-start;justify-content:center;padding:24px 16px;overflow-y:auto">
+    <div style="background:var(--bg-secondary,#16182a);border:1px solid rgba(255,255,255,0.13);border-radius:12px;width:min(98vw,1280px);display:flex;flex-direction:column;box-shadow:0 24px 70px rgba(0,0,0,0.65);margin:auto">
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:14px 20px;border-bottom:1px solid rgba(255,255,255,0.08);flex-shrink:0;position:sticky;top:0;background:var(--bg-secondary,#16182a);border-radius:12px 12px 0 0;z-index:1">
+        <span style="font-size:13px;font-weight:600;color:var(--text-primary)">🔍 Wine Process Manager</span>
+        <div style="display:flex;gap:8px;align-items:center">
+          <button id="wine-proc-modal-close" class="btn-sm" style="color:#f87171;border-color:rgba(248,113,113,0.3)">✕ Close</button>
+        </div>
+      </div>
+      <div id="wine-proc-modal-list" style="padding:14px 18px;font-family:var(--font-mono,monospace);font-size:11px;line-height:1.65;min-height:80px">
+        <span style="color:var(--text-muted)">Loading…</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- SETTINGS -->
+  <div class="panel" id="panel-settings">
+    <div class="settings-scroll">
+      <div class="modal-panel-hdr">
+        <span class="modal-panel-title">
+          <svg viewBox="0 0 20 20" width="13" fill="currentColor" style="opacity:.65;flex-shrink:0"><path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd"/></svg>
+          Settings
+        </span>
+        <button class="modal-panel-close" id="close-settings-popup">✕</button>
+      </div>
+
+      <div class="s-section">
+        <div class="s-title">truckersmp-cli</div>
+        <div class="s-field">
+          <label class="s-label">CLI Binary Path</label>
+          <div class="s-row">
+            <input class="s-input" id="s-cli" placeholder="/opt/homebrew/bin/truckersmp-cli" spellcheck="false"/>
+            <button class="s-browse" data-target="s-cli" data-folder="false">Browse</button>
+          </div>
+          <div class="s-hint">Install via: <code>pip3 install truckersmp-cli</code></div>
+          <div class="s-validate hidden" id="v-cli"></div>
+        </div>
+      </div>
+
+      <div class="s-section" id="section-wine-mode">
+        <div class="s-title">Wine Mode</div>
+        <div class="s-field">
+          <div class="s-hint" style="margin-bottom:10px">Use <strong>CrossOver</strong> if you have CrossOver installed, or <strong>Standalone Wine</strong> for a self-contained setup — no CrossOver required.</div>
+          <div class="wine-mode-toggle">
+            <button class="wine-mode-btn active" id="wm-crossover">CrossOver Wine</button>
+            <button class="wine-mode-btn" id="wm-standalone">Standalone Wine <span style="font-size:10px;color:#fb923c;font-weight:700">Beta</span></button>
+          </div>
+          <div id="wm-crossover-info" class="s-hint">Uses your existing CrossOver installation. Configure paths in the sections below.</div>
+          <div id="wm-standalone-info" class="hidden">
+            <div class="sw-status-row">
+              <span class="sw-status-icon" id="sw-ind-wine">○</span>
+              <span id="sw-lbl-wine" class="sw-status-miss">Wine not installed</span>
+            </div>
+            <div class="sw-status-row">
+              <span class="sw-status-icon" id="sw-ind-bottle">○</span>
+              <span id="sw-lbl-bottle" class="sw-status-miss">Bottle not created</span>
+            </div>
+            <div class="sw-status-row">
+              <span class="sw-status-icon" id="sw-ind-dxmt">○</span>
+              <span id="sw-lbl-dxmt" class="sw-status-miss">DXMT not installed</span>
+            </div>
+            <button class="btn-ghost" id="btn-open-sw-wizard" style="margin-top:8px;width:100%">⚙ Open Setup Wizard</button>
+            <!-- Wine Versions manager (multi-wine) -->
+            <div style="margin-top:10px">
+              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:5px">
+                <span class="s-label" style="margin:0;font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--text-muted)">Wine Versions</span>
+                <button class="btn-ghost" id="btn-install-another-wine" style="padding:2px 8px;font-size:11px">＋ Install New</button>
+              </div>
+              <div id="sw-wine-manager" style="display:flex;flex-direction:column;gap:4px">
+                <span style="color:var(--text-muted);font-size:11px">Loading…</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="wm-standalone-paths" class="hidden">
+          <div class="s-field">
+            <label class="s-label">Bottle Path</label>
+            <div class="sw-path-row">
+              <input class="s-input" id="sw-bottle-path" spellcheck="false"/>
+              <button class="s-browse" data-target="sw-bottle-path" data-folder="true">Browse</button>
+            </div>
+            <div class="s-hint">Where your standalone Wine bottle lives. Default: ~/Library/Application Support/TruckersMP-Launcher/TruckersmpBottle</div>
+          </div>
+          <div class="s-field">
+            <label class="s-label">Steam Directory inside bottle</label>
+            <div class="sw-path-row">
+              <input class="s-input" id="sw-steam-dir" spellcheck="false"/>
+              <button class="s-browse" data-target="sw-steam-dir" data-folder="true">Browse</button>
+            </div>
+          </div>
+          <div class="s-field">
+            <label class="s-label">ETS2 Game Directory inside bottle</label>
+            <div class="sw-path-row">
+              <input class="s-input" id="sw-game-dir" spellcheck="false"/>
+              <button class="s-browse" data-target="sw-game-dir" data-folder="true">Browse</button>
+            </div>
+          </div>
+          <div style="display:flex;gap:6px;margin-top:4px">
+            <button class="btn-ghost" id="btn-winecfg" style="flex:1">⚙ Launch winecfg</button>
+            <button class="btn-ghost" id="btn-repair-dxmt" style="flex:1;color:#a78bfa;border-color:rgba(167,139,250,0.4)" title="Re-install DXMT into the bottle from a new .tar.gz">🔧 Reinstall DXMT</button>
+          </div>
+          <div style="display:flex;gap:6px;margin-top:4px">
+            <button class="btn-ghost" id="btn-open-bottle-finder" style="flex:1;font-size:11.5px" title="Open the Wine bottle folder in Finder">📂 Open Bottle in Finder</button>
+            <button class="btn-ghost" id="btn-auto-detect-paths" style="flex:1;font-size:11.5px" title="Scan the bottle for Steam and ETS2 paths">🔍 Auto-detect Paths</button>
+          </div>
+          <div style="margin-top:10px">
+            <label class="s-label" style="margin-bottom:4px">Wine Command</label>
+            <div style="display:flex;gap:6px;align-items:center">
+              <input class="s-input" id="sw-wine-cmd" placeholder="e.g. regedit   explorer   notepad   cmd" spellcheck="false" style="font-family:var(--font-mono,monospace);font-size:12px"/>
+              <button class="btn-ghost" id="btn-run-wine-cmd" style="white-space:nowrap;padding:0 12px">▶ Run</button>
+            </div>
+            <div id="wine-cmd-result" style="font-size:11px;margin-top:4px;min-height:16px;color:var(--text-secondary)"></div>
+          </div>
+
+          <div style="margin-top:10px">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px">
+              <label class="s-label" style="margin:0">Wine Diagnostics</label>
+              <button class="btn-ghost" id="btn-wine-diag" style="padding:2px 10px;font-size:11px">🔍 Run</button>
+            </div>
+            <div id="wine-diag-result" style="font-size:11px;font-family:var(--font-mono,monospace);line-height:1.8;min-height:18px;color:var(--text-secondary)">
+              <span style="color:var(--text-muted)">Click Run to test your Wine setup…</span>
+            </div>
+          </div>
+
+          <div style="margin-top:10px">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px">
+              <div style="display:flex;align-items:center;gap:10px">
+                <label class="s-label" style="margin:0">Wine Log</label>
+                <label class="s-check" style="font-size:10.5px;margin:0" title="When enabled, Wine debug output is written to a log file each time Steam is launched">
+                  <input type="checkbox" id="s-wine-debug-log" checked/> Enable log
+                </label>
+              </div>
+              <div style="display:flex;gap:6px">
+                <button class="btn-ghost" id="btn-clear-html-cache" style="padding:2px 10px;font-size:11px" title="Delete Steam's CEF HTML cache — fixes black login screen after the OpenGL patch">🗑 Clear Cache</button>
+                <button class="btn-ghost" id="btn-steam-log" style="padding:2px 10px;font-size:11px" title="Open Wine log file in Finder">📂 Open in Finder</button>
+              </div>
+            </div>
+            <div style="font-size:10.5px;color:var(--text-muted);line-height:1.5">Wine debug output from the last Steam launch. Click Open in Finder to view the file.</div>
+          </div>
+
+        </div>
+
+        <div id="wm-crossover-winecfg" style="margin-top:8px">
+          <button class="btn-ghost" id="btn-winecfg-cx" style="width:100%">⚙ Launch winecfg</button>
+        </div>
+      </div>
+
+      <div class="s-section cx-only" id="section-cx-wine">
+        <div class="s-title">CrossOver Wine <span class="s-mode-badge cx-badge">CrossOver only</span></div>
+        <div class="s-field">
+          <label class="s-label">Wine Binary Path</label>
+          <div class="s-row">
+            <input class="s-input" id="s-wine" placeholder="/Applications/CrossOver.app/Contents/SharedSupport/CrossOver/bin/wine" spellcheck="false"/>
+            <button class="s-browse" data-target="s-wine" data-folder="false">Browse</button>
+          </div>
+          <div class="s-validate hidden" id="v-wine"></div>
+          <button class="s-autofill hidden" id="btn-use-wine">↳ Use detected CrossOver Wine</button>
+        </div>
+        <div class="s-field">
+          <label class="s-label">CrossOver Bottle <span class="s-opt">-x flag</span></label>
+          <div class="s-row">
+            <input class="s-input" id="s-bottle" placeholder="~/Library/Application Support/CrossOver/Bottles/YOUR-BOTTLE" spellcheck="false"/>
+            <button class="s-browse" data-target="s-bottle" data-folder="true">Browse</button>
+          </div>
+          <div class="s-hint">The CrossOver bottle where ETS2 and Steam are installed. Usually named "Steam".</div>
+          <div class="s-validate hidden" id="v-bottle"></div>
+        </div>
+        <div class="s-field">
+          <label class="s-label">Steam Directory <span class="s-opt">--wine-steam-dir</span></label>
+          <div class="s-row">
+            <input class="s-input" id="s-steam" placeholder="…/Bottles/Steam/drive_c/Program Files (x86)/Steam" spellcheck="false"/>
+            <button class="s-browse" data-target="s-steam" data-folder="true">Browse</button>
+          </div>
+          <div class="s-hint">Steam folder inside your CrossOver bottle. Auto-detected from the bottle above.</div>
+          <div class="s-validate hidden" id="v-steam"></div>
+        </div>
+      </div>
+
+      <div class="s-section cx-only" id="section-cx-game">
+        <div class="s-title">Game Directory <span class="s-opt">-g flag</span> <span class="s-mode-badge cx-badge">CrossOver only</span></div>
+        <div class="s-field">
+          <label class="s-label">ETS2 Game Directory</label>
+          <div class="s-row">
+            <input class="s-input" id="s-game" placeholder="…/steamapps/common/Euro Truck Simulator 2" spellcheck="false"/>
+            <button class="s-browse" data-target="s-game" data-folder="true">Browse</button>
+          </div>
+          <div class="s-hint">ETS2 folder inside your CrossOver bottle. Auto-detected from Steam directory.</div>
+          <div class="s-validate hidden" id="v-game"></div>
+        </div>
+      </div>
+
+
+      <!-- ── First-run welcome banner (dismissable) ────────────────────── -->
+      <div id="first-run-banner" class="first-run-banner" style="display:none">
+        <div class="first-run-icon">👋</div>
+        <div class="first-run-body">
+          <div class="first-run-title">Welcome to TruckersMP for macOS!</div>
+          <div class="first-run-text">
+            To get Discord showing what you're playing, scroll down to <b>Discord Rich Presence</b> and paste a Discord Application ID.
+            Don't have one? <a href="https://discord.com/developers/applications" target="_blank">Create one free</a> in 30 seconds.
+          </div>
+        </div>
+        <button class="first-run-dismiss" id="btn-first-run-dismiss" title="Dismiss">✕</button>
+      </div>
+
+      <div class="s-section">
+        <div class="s-title">Launch Options</div>
+        <div class="s-field">
+          <label class="s-check"><input type="checkbox" id="s-sp"/> Launch in Singleplayer mode (bypass TruckersMP login)</label>
+          <label class="s-check"><input type="checkbox" id="s-metal-hud"/> Show Metal HUD overlay (GPU/CPU stats) — works with any translator</label>
+        </div>
+        <div class="s-field">
+          <label class="s-label">Extra Arguments</label>
+          <input class="s-input" id="s-extra" placeholder='e.g. --game-options="-nointro"' spellcheck="false"/>
+        </div>
+      </div>
+
+      <!-- ── Discord Rich Presence ─────────────────────────────────────── -->
+      <div class="s-section">
+        <div class="s-title s-title-toggle" id="discord-section-toggle">
+          <span>Discord Rich Presence</span>
+          <span class="s-chevron" id="discord-chevron">▾</span>
+        </div>
+
+        <div id="discord-section-body">
+        <div class="s-field">
+          <label class="s-check"><input type="checkbox" id="s-discord" checked/> Enable Discord Rich Presence — shows TruckersMP as your Discord status</label>
+        </div>
+        <div class="s-field" id="discord-client-row">
+          <label class="s-label">Discord Application ID
+            <span style="font-weight:400;color:#9ca3af;font-size:11px;margin-left:6px">
+              — <a href="https://discord.com/developers/applications" target="_blank" style="color:#818cf8">Create one free</a>, then paste the Client ID here
+            </span>
+          </label>
+          <input class="s-input" id="s-discord-client-id" placeholder="e.g. 1234567890123456789" spellcheck="false" maxlength="25"/>
+          <div style="font-size:11px;color:#6b7280;margin-top:4px">
+            Create a Discord application → name it "TruckersMP" → add the TruckersMP logo as an art asset named <code style="background:#1e1e2e;padding:1px 4px;border-radius:3px">truckersmp</code> → paste the Client ID above.
+          </div>
+
+          <button class="rpc-toggle-btn" id="btn-rpc-custom">✏ Customise Rich Presence</button>
+
+          <div class="rpc-panel" id="rpc-panel">
+            <div style="font-size:10px;color:#6b7280;line-height:1.5">
+              Personalise what Discord shows. Leave a field empty to use the default.
+            </div>
+            <div class="rpc-grid">
+              <div class="rpc-row">
+                <label class="rpc-label">While logging in</label>
+                <input class="rpc-input" id="rpc-details-login" placeholder="Logging in" maxlength="128"/>
+              </div>
+              <div class="rpc-row">
+                <label class="rpc-label">While in game</label>
+                <input class="rpc-input" id="rpc-details-game" placeholder="In Game" maxlength="128"/>
+              </div>
+            </div>
+            <div class="rpc-row">
+              <label class="rpc-label">State (second line)</label>
+              <input class="rpc-input" id="rpc-state" placeholder="Euro Truck Simulator 2" maxlength="128"/>
+            </div>
+            <div class="rpc-grid">
+              <div class="rpc-row">
+                <label class="rpc-label">Large image asset key</label>
+                <input class="rpc-input" id="rpc-image-key" placeholder="truckersmp" maxlength="64"/>
+              </div>
+              <div class="rpc-row">
+                <label class="rpc-label">Large image tooltip</label>
+                <input class="rpc-input" id="rpc-image-text" placeholder="TruckersMP" maxlength="128"/>
+              </div>
+            </div>
+            <div class="rpc-grid">
+              <div class="rpc-row">
+                <label class="rpc-label">Small image asset key <span style="font-weight:400;color:#6b7280;font-size:10px">(circle, bottom-right)</span></label>
+                <input class="rpc-input" id="rpc-small-image-key" placeholder="ets2" maxlength="64"/>
+              </div>
+              <div class="rpc-row">
+                <label class="rpc-label">Small image tooltip</label>
+                <input class="rpc-input" id="rpc-small-image-text" placeholder="Playing Euro Truck Simulator 2" maxlength="128"/>
+              </div>
+            </div>
+            <div style="font-size:10px;color:#6b7280;line-height:1.5;margin-top:-2px">
+              Upload an asset named <code style="background:#1e1e2e;padding:1px 4px;border-radius:3px">ets2</code> (an Euro Truck Simulator 2 logo) in your Discord app's Rich Presence → Art Assets to get the small circle in the bottom-right of the large image. Hovering it will show "Playing Euro Truck Simulator 2".
+            </div>
+            <div style="display:flex;gap:8px;justify-content:flex-end;align-items:center;flex-wrap:wrap">
+              <span id="rpc-test-status" style="font-size:10.5px;color:#6b7280;flex:1"></span>
+              <label style="font-size:10.5px;color:#9ca3af;display:flex;align-items:center;gap:6px">
+                Sample
+                <select class="s-input" id="s-rpc-test-preset" style="padding:3px 6px;width:auto;max-width:170px">
+                  <option value="driving_route">Driving — full route</option>
+                  <option value="driving_near">Driving — near city</option>
+                  <option value="in_game_idle">In Game — no telemetry</option>
+                  <option value="logging_in">Logging in</option>
+                </select>
+              </label>
+              <label style="font-size:10.5px;color:#9ca3af;display:flex;align-items:center;gap:6px">
+                Duration
+                <select class="s-input" id="s-rpc-test-duration" style="padding:3px 6px;width:auto">
+                  <option value="10">10 s</option>
+                  <option value="20">20 s</option>
+                </select>
+              </label>
+              <button class="rpc-save-btn" id="btn-rpc-save">Save</button>
+              <button class="rpc-save-btn" id="btn-rpc-test" style="background:rgba(52,211,153,.10);border-color:rgba(52,211,153,.30);color:#34d399">▶ Test it!</button>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:8px;align-items:center;margin-top:10px;flex-wrap:wrap">
+            <button class="rpc-save-btn" id="btn-set-ets2mp-logs" style="background:rgba(99,102,241,.10);border-color:rgba(99,102,241,.30);color:#a5b4fc">📁 Set ETS2MP Logs Folder</button>
+            <button class="rpc-save-btn" id="btn-force-watch-chat" style="background:rgba(251,191,36,.10);border-color:rgba(251,191,36,.30);color:#fcd34d">🔍 Force Watch Chat Log</button>
+            <span id="ets2mp-logs-status" style="font-size:10.5px;color:#6b7280;flex:1;min-width:140px"></span>
+          </div>
+          <div style="font-size:10px;color:#6b7280;margin-top:4px;line-height:1.5">
+            Force Watch scans your ETS2MP logs folder every 5 seconds for today's <code style="background:#1e1e2e;padding:1px 4px;border-radius:3px">chat_YYYY_MM_DD</code> file and reads it for "Connected to simulation N" / "Connection established". Stops automatically once detected.
+          </div>
+        </div>
+
+        <!-- ── Reconnect / AFK / Telemetry ─────────────────────────────── -->
+        <div class="s-field" id="rpc-extras-row" style="border-top:1px solid rgba(255,255,255,.06);padding-top:10px;margin-top:6px">
+          <label class="s-label" style="margin-bottom:6px">Rich Presence — extras</label>
+
+          <label class="s-check" style="display:flex;align-items:center;gap:8px">
+            <input type="checkbox" id="s-rpc-reconnect" checked/>
+            <span>Auto-reconnect Discord <span style="color:#6b7280;font-size:10.5px">(retries every 20 s while game is running)</span></span>
+            <span id="rpc-reconnect-dot" class="rpc-dot rpc-dot-off" title="Disconnected"></span>
+            <span id="rpc-reconnect-text" style="font-size:10.5px;color:#6b7280;margin-left:auto">Idle</span>
+          </label>
+
+
+          <label class="s-check" style="display:flex;align-items:center;gap:8px;margin-top:4px">
+            <input type="checkbox" id="s-rpc-advanced"/>
+            <span>Enable Advanced RPC <span style="color:#6b7280;font-size:10.5px">(show truck + route — needs an ETS2 telemetry plugin)</span></span>
+            <button type="button" class="info-pill" id="btn-adv-tutorial" title="How to set this up" aria-expanded="false">!</button>
+          </label>
+
+          <div id="rpc-advanced-panel" style="display:none;padding-left:22px;border-left:2px solid rgba(99,102,241,.18);margin-top:4px">
+
+            <!-- Setup tutorial — collapsed by default behind the (!) pill above. -->
+            <div class="info-popover" id="adv-tutorial-popover" style="display:none">
+              <div id="adv-rpc-standalone-warn" style="display:none;background:rgba(245,158,11,0.12);border:1px solid rgba(245,158,11,0.35);border-radius:6px;padding:7px 10px;margin-bottom:10px;font-size:11px;color:var(--orange,#f59e0b);line-height:1.5">⚠ Advanced RPC does not currently work with Standalone Wine mode. This will be fixed in a future update.</div>
+              <div class="info-popover-title">How to set up Advanced RPC</div>
+              <ol class="info-popover-list">
+                <li>Inside CrossOver, install <a href="https://github.com/Funbit/ets2-telemetry-server" target="_blank">Funbit's ETS2 telemetry-server</a> in the same bottle as ETS2.</li>
+                <li>Run <code>Ets2Telemetry.exe</code> — it starts a local HTTP server on port <code>25555</code>.</li>
+                <li>Tick <b>Show truck + city/cargo</b> below.</li>
+                <li>Paste <code>http://localhost:25555/api/ets2/telemetry</code> in the box (or point at a JSON file).</li>
+                <li>Launch the game — Discord will show your truck, route &amp; cargo.</li>
+              </ol>
+              <div class="info-popover-note">Polled every 10 s. The launcher only reads <code>truck.make/model</code> and <code>job.sourceCity/destinationCity/cargo</code> — nothing else.</div>
+            </div>
+
+            <label class="s-check" style="display:flex;align-items:center;gap:8px">
+              <input type="checkbox" id="s-telemetry-enabled"/>
+              <span>Show truck + city/cargo</span>
+              <span id="rpc-telemetry-dot" class="rpc-dot rpc-dot-off" title="Off"></span>
+              <span id="rpc-telemetry-text" style="font-size:10.5px;color:#6b7280;margin-left:auto">Off</span>
+            </label>
+
+            <input class="s-input" id="s-telemetry-path" placeholder="http://localhost:25555/api/ets2/telemetry  (or path to a JSON file)" spellcheck="false" style="margin-top:6px"/>
+          </div>
+        </div>
+        </div><!-- /#discord-section-body -->
+      </div>
+
+      <div class="s-section">
+        <div class="s-title">Launcher Options</div>
+        <div class="s-field">
+          <label class="s-label">Interface zoom <span class="s-opt" id="s-zoom-display">90%</span></label>
+          <input type="range" id="s-zoom-level" min="0.7" max="1.2" step="0.05" value="0.9" style="width:100%;accent-color:var(--accent)"/>
+          <div style="display:flex;justify-content:space-between;font-size:10px;color:var(--text-muted);margin-top:2px"><span>70%</span><span>100%</span><span>120%</span></div>
+        </div>
+        <div class="s-field">
+          <label class="s-check"><input type="checkbox" id="s-show-wine-activity"/> Show Wine Activity section in log panel</label>
+        </div>
+        <div class="s-field">
+          <label class="s-label">Keyboard shortcuts <span class="s-opt">click a binding then press a key combo</span></label>
+          <div class="kb-list" id="kb-list">
+            <div class="kb-row"><span class="kb-action">Launch game</span><button class="kb-btn" data-kb="launch" type="button">⌘L</button></div>
+            <div class="kb-row"><span class="kb-action">Stop game</span><button class="kb-btn" data-kb="stop" type="button">⌘.</button></div>
+            <div class="kb-row"><span class="kb-action">Start / Stop Steam</span><button class="kb-btn" data-kb="steam" type="button">⌘S</button></div>
+            <div class="kb-row"><span class="kb-action">Refresh servers</span><button class="kb-btn" data-kb="refresh" type="button">⌘R</button></div>
+            <div class="kb-row"><span class="kb-action">Clear log</span><button class="kb-btn" data-kb="clear" type="button">⌘K</button></div>
+            <div class="kb-row"><span class="kb-action">Open Settings</span><button class="kb-btn" data-kb="settings" type="button">⌘,</button></div>
+          </div>
+          <button class="btn-ghost" id="btn-kb-reset" style="margin-top:6px;font-size:10.5px">↻ Reset to defaults</button>
+        </div>
+        <div class="s-field">
+          <label class="s-label">Server status &amp; TMP info refresh interval</label>
+          <select class="s-select" id="s-refresh-interval">
+            <option value="60000" selected>Every 1 minute (default)</option>
+            <option value="300000">Every 5 minutes</option>
+            <option value="1800000">Every 30 minutes</option>
+            <option value="3600000">Every 1 hour</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="s-section">
+        <div class="s-title" style="color:#dc2626">Reset &amp; Uninstall</div>
+        <div class="s-field">
+          <div class="uninstall-row">
+            <div>
+              <div class="uninstall-label">Remove launcher settings</div>
+              <div class="uninstall-desc">Permanently deletes <code style="font-size:10.5px;background:#1e1e2e;padding:1px 4px;border-radius:3px">~/.config/truckersmp-launcher/</code> — resets all settings to defaults.</div>
+            </div>
+            <button class="btn-uninstall" id="btn-uninstall-settings">Remove</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="s-actions">
+        <button class="btn-save" id="btn-save">Save Settings</button>
+        <span class="save-ok hidden" id="save-ok">✓ Saved</span>
+      </div>
+
+    </div>
+  </div>
+
+
+
+  <!-- ABOUT -->
+  <div class="panel" id="panel-about">
+    <div class="about-wrap">
+      <div class="modal-panel-hdr">
+        <span class="modal-panel-title">
+          <svg viewBox="0 0 20 20" width="13" fill="currentColor" style="opacity:.65;flex-shrink:0"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/></svg>
+          About
+        </span>
+        <button class="modal-panel-close" id="close-about-popup">✕</button>
+      </div>
+      <div class="about-img-wrap"><img src="TruckersMPMACOS-iOS-Default-1024x1024@1x.png" class="about-img"/></div>
+      <div class="about-title">TruckersMP for macOS</div>
+      <div class="about-sub">GUI launcher for TruckersMP on macOS<br/>Version 2.0 Beta</div>
+
+      <div class="about-divider"></div>
+      <div style="text-align:center;margin-bottom:12px">
+        <div style="display:flex;align-items:center;justify-content:center;gap:8px">
+          <button class="btn-ghost" id="btn-check-update" style="font-size:12px;padding:5px 18px">↻ Check for Update</button>
+          <button class="btn-ghost hidden" id="btn-view-changelog" style="font-size:12px;padding:5px 12px;color:#f59e0b;border-color:rgba(245,158,11,0.4)" title="View changelog">📋 Changelog</button>
+        </div>
+        <div id="update-status" style="font-size:11.5px;margin-top:8px;min-height:16px;color:var(--text-secondary)"></div>
+        <button class="btn-launch hidden" id="btn-download-update" style="margin-top:10px;font-size:12px;padding:7px 22px;animation:glow-pulse 2s infinite">⬇ Download &amp; Install Update</button>
+      </div>
+      <div class="about-divider"></div>
+      <div class="about-credits">
+        <div class="about-credits-line">Made by <span class="about-credits-name">nohero765</span></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- UPDATE SCREEN OVERLAY -->
+  <div id="update-screen" style="display:none;position:fixed;inset:0;background:#000;z-index:99999;flex-direction:column;align-items:center;justify-content:center;gap:0">
+    <div id="update-screen-logo-wrap" style="width:110px;height:110px;border-radius:22px;overflow:hidden;margin-bottom:28px;box-shadow:0 0 60px rgba(220,38,38,0.6),0 0 120px rgba(220,38,38,0.25);animation:update-logo-glow 2s ease-in-out infinite alternate">
+      <img src="TruckersMPMACOS-iOS-Default-1024x1024@1x.png" id="update-screen-logo" style="width:108%;height:108%;margin:-4%;object-fit:cover;display:block"/>
+    </div>
+    <div id="update-screen-title" style="font-family:var(--font-head);font-size:18px;font-weight:700;color:#fff;margin-bottom:6px;letter-spacing:0.01em">Updating TruckersMP for macOS…</div>
+    <div id="update-screen-phase" style="font-size:12px;color:rgba(255,255,255,0.55);margin-bottom:22px">Preparing…</div>
+    <div style="width:340px;background:rgba(255,255,255,0.1);border-radius:99px;height:6px;overflow:hidden;margin-bottom:8px">
+      <div id="update-screen-bar" style="height:100%;width:0%;background:linear-gradient(90deg,#dc2626,#f87171);border-radius:99px;transition:width 0.2s ease"></div>
+    </div>
+    <div id="update-screen-speed" style="font-size:11px;color:rgba(255,255,255,0.4);min-height:16px;margin-bottom:28px"></div>
+    <div style="display:flex;gap:10px">
+      <button id="update-screen-cancel" style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.18);border-radius:8px;color:rgba(255,255,255,0.7);font-size:12px;padding:7px 18px;cursor:pointer;font-family:var(--font-ui)">✕ Cancel</button>
+    </div>
+  </div>
+
+  <!-- CHANGELOG MODAL -->
+  <div id="changelog-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.75);backdrop-filter:blur(6px);z-index:9998;align-items:center;justify-content:center">
+    <div style="background:var(--bg-secondary,#16182a);border:1px solid rgba(255,255,255,0.12);border-radius:14px;width:min(90vw,520px);max-height:70vh;display:flex;flex-direction:column;box-shadow:0 24px 70px rgba(0,0,0,0.6)">
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:14px 18px;border-bottom:1px solid rgba(255,255,255,0.08);flex-shrink:0">
+        <span style="font-size:13px;font-weight:600;color:var(--text-primary)">📋 Release Notes</span>
+        <button id="changelog-close" class="btn-sm">✕ Close</button>
+      </div>
+      <div id="changelog-body" style="padding:16px 18px;overflow-y:auto;font-size:12px;line-height:1.7;color:var(--text-secondary);white-space:pre-wrap;word-break:break-word"></div>
+    </div>
+  </div>
+
+  <!-- POPUP BACKDROP — shared by Settings and About popups -->
+  <div id="popup-backdrop" class="popup-backdrop hidden"></div>
+
+  <!-- TOAST CONTAINER -->
+  <div id="toast-container"></div>
+
+  <!-- CONFIRM MODAL -->
+  <div id="confirm-overlay" class="confirm-overlay hidden">
+    <div class="confirm-box">
+      <div class="confirm-msg" id="confirm-msg"></div>
+      <div class="confirm-actions">
+        <button class="confirm-cancel" id="confirm-cancel">Cancel</button>
+        <button class="confirm-ok" id="confirm-ok">Confirm</button>
+      </div>
+    </div>
+  </div>
+
+
+</main>
+
+<!-- RIGHT SIDEBAR — collapsible info panel -->
+<aside class="sidebar-right" id="sidebar-right">
+  <button class="sidebar-right-toggle" id="btn-toggle-right" title="Toggle info panel">‹</button>
+  <div class="sidebar-right-inner">
+
+    <div class="section-label" style="margin-top:8px">TMP INFO</div>
+    <div class="card" id="card-tmpinfo">
+      <div class="tmpinfo-grid">
+        <div class="tmpinfo-item">
+          <span class="tmpinfo-label">In-Game Time</span>
+          <span class="tmpinfo-val highlight" id="tmp-gametime">—</span>
+        </div>
+        <div class="tmpinfo-item">
+          <span class="tmpinfo-label">Latest TMP</span>
+          <span class="tmpinfo-val" id="tmp-version">—</span>
+        </div>
+        <div class="tmpinfo-item">
+          <span class="tmpinfo-label">Supports ETS2</span>
+          <span class="tmpinfo-val" id="tmp-ets2ver">—</span>
+        </div>
+      </div>
+      <div class="srv-footer-row" style="margin-top:4px">
+        <span class="srv-updated" id="tmp-updated"></span>
+        <button class="btn-ghost srv-refresh-btn" id="btn-refresh-tmp">↻ Refresh</button>
+      </div>
+    </div>
+
+    <div class="section-label">UPCOMING EVENTS</div>
+    <div class="card" id="card-events">
+      <div class="srv-loading" id="evt-loading">Loading events…</div>
+      <div id="evt-list" class="hidden"></div>
+      <div class="srv-footer-row">
+        <span class="srv-updated" id="evt-updated"></span>
+        <button class="btn-ghost srv-refresh-btn" id="btn-refresh-evt">↻ Refresh</button>
+      </div>
+    </div>
+
+    <div class="section-label">PLAYER FINDER</div>
+    <div class="card">
+      <div class="s-hint" style="margin-bottom:8px">Look up any TruckersMP player by their numeric ID.</div>
+      <div class="player-search-row" style="display:flex;gap:6px;margin-bottom:6px">
+        <input class="s-input" id="player-id-input" placeholder="Player ID…" spellcheck="false" type="number" min="1" style="flex:1;min-width:0"/>
+        <button class="btn-player-search" id="btn-player-lookup" style="white-space:nowrap">Look Up</button>
+      </div>
+      <div id="player-loading" class="hidden player-loading">Searching…</div>
+      <div id="player-error" class="hidden player-error"></div>
+      <div id="player-result" class="hidden"></div>
+    </div>
+
+  </div>
+</aside>
+
+<!-- STANDALONE WINE SETUP WIZARD -->
+<div id="sw-wizard" class="sw-overlay hidden">
+  <div class="sw-box">
+    <div class="sw-header">
+      <div class="sw-title">Standalone Wine Setup</div>
+      <div class="sw-subtitle">Set up integrated Wine, a bottle, Steam, and DXMT — no CrossOver needed.</div>
+      <div class="sw-steps" style="margin-top:16px;margin-bottom:16px">
+        <div class="sw-step-dot active" id="swdot-1">
+          <div class="sw-dot-circle">1</div>
+          <div class="sw-dot-label">Wine</div>
+        </div>
+        <div class="sw-step-dot" id="swdot-2">
+          <div class="sw-dot-circle">2</div>
+          <div class="sw-dot-label">Bottle &amp; Steam</div>
+        </div>
+        <div class="sw-step-dot" id="swdot-3">
+          <div class="sw-dot-circle">3</div>
+          <div class="sw-dot-label">DXMT</div>
+        </div>
+        <div class="sw-step-dot" id="swdot-4">
+          <div class="sw-dot-circle">4</div>
+          <div class="sw-dot-label">Done</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sw-body">
+
+      <!-- Step 1: Download Wine -->
+      <div class="sw-step-panel active" id="swp-1">
+        <div class="sw-step-title">Step 1 — Download Wine</div>
+        <div class="sw-desc" id="sw-step1-desc">Select a Wine version below, then click Download &amp; Install.</div>
+        <div class="sw-info-row" id="sw-wine-release-info">
+          <span style="color:var(--text-secondary)">Press "Check" to look up available releases.</span>
+        </div>
+        <!-- Custom GitHub release URL -->
+        <div style="margin-top:10px;padding:8px 10px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:7px">
+          <div style="font-size:10px;font-weight:700;letter-spacing:0.8px;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:5px">Custom GitHub Release URL</div>
+          <div style="display:flex;gap:6px;align-items:center">
+            <input id="sw-custom-wine-url" type="text" placeholder="https://github.com/user/repo/releases/download/tag/file.tar.xz" spellcheck="false"
+              style="flex:1;font-size:11px;padding:5px 8px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:5px;color:var(--text-primary);outline:none;min-width:0"/>
+            <button id="sw-apply-custom-url" class="sw-btn-ghost" style="padding:4px 10px;font-size:11px;white-space:nowrap">Apply URL</button>
+          </div>
+          <div style="font-size:10px;color:rgba(255,255,255,0.3);margin-top:4px">Direct link to a .tar.xz or .tar.gz Wine archive. Tagged as ⚠ Unofficial — not tested.</div>
+        </div>
+        <div class="sw-progress-wrap" id="sw-wine-prog-wrap">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px">
+            <div class="sw-progress-label" id="sw-wine-prog-label">Downloading…</div>
+            <button id="sw-cancel-wine-dl" class="sw-btn-ghost" style="padding:1px 8px;font-size:11px;color:#f87171;border-color:rgba(248,113,113,0.4)">✕ Cancel</button>
+          </div>
+          <div class="sw-progress-bar"><div class="sw-progress-fill" id="sw-wine-prog-fill"></div></div>
+        </div>
+        <div class="sw-error" id="sw-wine-err"></div>
+        <div style="font-size:10.5px;color:rgba(255,255,255,0.38);margin-top:8px;display:flex;align-items:flex-start;gap:5px">
+          <span style="flex-shrink:0">🔑</span>
+          <span>Installation will ask for your <strong style="color:rgba(255,255,255,0.55)">Mac login password</strong> (not your Apple ID) to remove the "App is damaged and can't be opened" message from Wine. This will be fixed in a future release.</span>
+        </div>
+        <div class="sw-actions" style="flex-wrap:wrap;gap:8px">
+          <button class="sw-btn-ghost" id="sw-close-1">Close</button>
+          <button class="sw-btn-ghost" id="sw-skip-wine" style="color:var(--green);border-color:var(--green)">Already installed → Skip</button>
+          <button class="sw-btn-ghost" id="sw-check-wine-release">Check for releases</button>
+          <button class="sw-btn" id="sw-dl-wine">Download &amp; Install Wine</button>
+        </div>
+      </div>
+
+      <!-- Step 2: Bottle + Steam -->
+      <div class="sw-step-panel" id="swp-2">
+        <div class="sw-step-title">Step 2 — Create Bottle &amp; Install Steam</div>
+        <div class="sw-desc">
+          Choose where to create your Wine bottle, then the app will initialise it and
+          download <strong>SteamSetup.exe</strong> and run it inside the bottle.
+        </div>
+        <div style="font-size:11px;color:var(--text-muted);line-height:1.6;margin-bottom:12px">
+          If no bottle location is given, the bottle will be created at
+          <code style="font-size:10px;background:rgba(235,235,245,0.06);padding:1px 4px;border-radius:3px;color:var(--text-secondary)">~/Library/Application Support/TruckersMP-Launcher/TruckersmpBottle</code>
+          <br/>
+          <span style="color:var(--text-secondary)">⏳ Please wait for Steam setup to fully finish</span> before proceeding to the next step.
+        </div>
+        <div class="s-field" style="margin-bottom:14px">
+          <label class="s-label" style="font-size:11.5px;margin-bottom:4px">Bottle location</label>
+          <div class="sw-path-row">
+            <input class="s-input" id="sw-wiz-bottle" spellcheck="false"/>
+            <button class="s-browse" data-target="sw-wiz-bottle" data-folder="true">Browse</button>
+          </div>
+        </div>
+        <div class="sw-progress-wrap" id="sw-steam-prog-wrap">
+          <div class="sw-progress-label" id="sw-steam-prog-label">Downloading Steam…</div>
+          <div class="sw-progress-bar"><div class="sw-progress-fill" id="sw-steam-prog-fill"></div></div>
+        </div>
+        <div class="sw-error" id="sw-bottle-err"></div>
+        <div class="sw-actions">
+          <button class="sw-btn-ghost" id="sw-back-2">← Back</button>
+          <button class="sw-btn-ghost" id="sw-skip-2" style="color:var(--green);border-color:var(--green)">Already done → Skip</button>
+          <button class="sw-btn" id="sw-create-bottle">Create Bottle &amp; Launch Steam</button>
+          <button class="sw-btn" id="sw-next-2" style="display:none">Next →</button>
+        </div>
+      </div>
+
+      <!-- Step 3: DXMT -->
+      <div class="sw-step-panel" id="swp-3">
+        <div class="sw-step-title">Step 3 — Install DXMT</div>
+        <div class="sw-desc">
+          Download the latest DXMT release from
+          <a href="https://github.com/3Shain/dxmt" target="_blank" style="color:var(--accent);text-decoration:none">github.com/3Shain/dxmt</a> — grab the
+          <code>.tar.gz</code> file. Then drop it below or browse to it.
+          The app will extract it and wire it up automatically.
+        </div>
+        <div style="margin-bottom:14px">
+          <button class="sw-btn" id="sw-auto-install-dxmt" style="width:100%;margin-bottom:6px">⬇ Auto-install latest DXMT from GitHub</button>
+          <div id="sw-dxmt-auto-status" style="font-size:11px;color:var(--text-secondary);text-align:center;min-height:16px"></div>
+        </div>
+        <div style="text-align:center;font-size:11px;color:rgba(255,255,255,0.2);margin-bottom:14px;letter-spacing:0.5px">— or install from file manually —</div>
+        <div class="s-field" style="margin-bottom:14px">
+          <label class="s-label" style="font-size:11.5px;margin-bottom:4px">DXMT .tar.gz archive</label>
+          <div class="sw-path-row">
+            <input class="s-input" id="sw-wiz-dxmt" placeholder="Drop .tar.gz here or browse…" spellcheck="false"/>
+            <button class="s-browse" data-target="sw-wiz-dxmt" data-folder="false">Browse</button>
+          </div>
+        </div>
+        <div class="sw-error" id="sw-dxmt-err"></div>
+        <div class="sw-actions">
+          <button class="sw-btn-ghost" id="sw-back-3">← Back</button>
+          <button class="sw-btn-ghost" id="sw-skip-dxmt">Skip for now</button>
+          <button class="sw-btn" id="sw-install-dxmt">Install DXMT →</button>
+        </div>
+      </div>
+
+      <!-- Step 4: Done -->
+      <div class="sw-step-panel" id="swp-4">
+        <div class="sw-step-title">Setup Complete!</div>
+        <div class="sw-desc">
+          Standalone Wine and your bottle are ready.
+        </div>
+        <div class="sw-warn" style="margin-bottom:14px">
+          <strong>Install ETS2:</strong> Open Steam inside the bottle and install
+          <strong>Euro Truck Simulator 2</strong> through it. The launcher will detect
+          the game directory automatically when you launch.
+        </div>
+        <div class="s-field">
+          <label class="s-label" style="font-size:11.5px;margin-bottom:4px">Steam directory inside bottle <span style="color:var(--text-muted);font-weight:400">(auto-detected if blank)</span></label>
+          <div class="sw-path-row">
+            <input class="s-input" id="sw-wiz-steam" placeholder="…/drive_c/Program Files (x86)/Steam" spellcheck="false"/>
+            <button class="s-browse" data-target="sw-wiz-steam" data-folder="true">Browse</button>
+          </div>
+        </div>
+        <div class="sw-actions">
+          <button class="sw-btn" id="sw-finish">Finish &amp; Close</button>
+        </div>
+      </div>
+
+    </div><!-- /.sw-body -->
+  </div>
+</div>
+
+<!-- WELCOME / BETA NOTICE MODAL -->
+<div id="welcome-modal" class="welcome-overlay">
+  <div class="welcome-box">
+    <div class="welcome-header">
+      <span class="welcome-icon">⚠️</span>
+      <span class="welcome-title">Notice!</span>
+    </div>
+    <div class="welcome-body">
+      <p>This app is still in <strong>beta</strong> and is actively being developed.</p>
+      <p>Features, settings, and behaviour are subject to change at any time. You may encounter bugs or incomplete functionality.</p>
+    </div>
+    <button class="welcome-btn" id="btn-welcome-dismiss">I Understand</button>
+  </div>
+</div>
+
+<script src="renderer.js"></script>
+</body>
+</html>
