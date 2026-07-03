@@ -14,40 +14,40 @@ A macOS launcher for [TruckersMP](https://truckersmp.com) — the ETS2 multiplay
 
 ### Launch & Game Control
 - **One-click launch** into TruckersMP multiplayer or ETS2 singleplayer
-- **Start Steam** independently, then **Launch ETS2 MP** once it's up
-- **Stop / Force Kill** — correctly terminates all Wine processes
-- **Wine Activity panel** — shows running Wine processes with **Manage** and **Kill All**
+- **Start Steam** independently then **Launch ETS2 MP** once it's up
+- **Stop / Force Kill** correctly terminates all Wine processes
+- **Wine Activity panel** shows running Wine processes with **Manage** and **Kill All**
 
 ### Two Wine Backends
 Switch between backends per-game from the sidebar toggle:
-- **CrossOver Wine** — uses an existing CrossOver install and bottle
-- **Standalone Wine** *(Beta)* — fully self-contained, no CrossOver required. The launcher manages its own Wine builds, bottle, and DXMT install for you
+- **CrossOver Wine** uses an existing CrossOver install and bottle
+- **Standalone Wine** *(Beta)* — fully independent, no CrossOver required. The launcher manages its own Wine builds bottle and DXMT install for you
 
 ### Path Management
 - **Auto-detect** for `truckersmp-cli`, Wine, Bottle, Steam directory, and game directory (works for both backends — **Auto-detect Paths** in Standalone Wine settings)
-- **Detection badges** (Found / Not found) in the sidebar
+- **Detection badges** (Found and Not found) in the sidebar
 - **Browse buttons** and **Open Bottle in Finder**
 - **↻ Re-detect**
 
 ### Standalone 
-- **Setup Wizard** — installs the latest Wine build and DXMT release automatically.
-- **Wine version manager** — install multiple Wine builds side by side, mark one **active**, uninstall old ones
-- **Status checklist** — Wine installed / Bottle ready / DXMT version, each with a ✓
-- **Bottle Path**, **Steam Directory inside bottle**, and **ETS2 Game Directory inside bottle**, independently configurable
+- **Setup Wizard** installs the latest Wine build and DXMT release automatically.
+- **Wine version manager** install multiple Wine builds side by side, mark one **active**, uninstall old ones
+- **Status checklist** Wine installed / Bottle ready / DXMT version, each with a ✓
+- **Bottle Path** **Steam Directory inside bottle**, and **ETS2 Game Directory inside bottle**, independently configurable
 - **Launch winecfg** and **Reinstall DXMT** shortcuts
 - **Wine Command runner** — run Wine commands (e.g. `regedit`, `explorer`) directly to the bottle
-- **Wine Log** — toggleable debug logging with **Open in Finder**
+- **Wine Log** toggleable debug logging with **Open in Finder**
 
 ### Live Log Viewer
 - **Real-time log streaming** with colour-coded output (info / warn / error / success / system)
-- **Category tabs** — filter between All / Wine / Launcher output
+- **Category tabs**  filter between All / Wine / Launcher output
 - **Filter bar** to search log output on the fly
 - **Timestamps** and **auto-scroll** toggles
 - **Clear** button to reset the log
 
 ### TruckersMP Server Status
 - **Live server list** pulled from the TMP API — shows player count and server status
-- **Favourites** — star your main servers; favourites pin to the top of the list
+- **Favourites** star your main servers; favourites pin to the top of the list
 - **Auto-refresh** on a configurable interval (see Launcher Options), plus manual refresh
 
 ### TMP Info & Events
