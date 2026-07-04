@@ -178,7 +178,7 @@ Make sure Discord is running, and that your Application ID is correct.
 Go into ETS2 graphics settings and set reflection quality to High. This is a known rendering quirk that sometimes resolves itself after a TruckersMP or DXMT update.
 
 **I keep getting "wine discord ipc bridge has encountered a serious problem"**
-either disable discord rpc in settings (disables also the launchers custom rpc) or run TruckersMP and in settings disable discord rpc.
+either disable discord rpc in settings (Also disables the launchers custom rpc) or run TruckersMP and in settings disable discord rpc.
 
 **when trying to use the ingame radio my game freezes**
 make sure in wine configuration (winecfg) that your microphone is set to your macbook microphone or headphones and not system default
