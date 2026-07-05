@@ -216,4 +216,4 @@ Inspired by [matyash12's unofficial TruckersMP macOS launcher](https://github.co
 
 ## License
 
-MIT
+GPL-3.0
