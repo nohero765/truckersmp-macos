@@ -129,7 +129,7 @@ If you need to install a different Wine build later, use **+ Install New** under
    - **Wine (CrossOver) path** — inside `/Applications/CrossOver.app/...`
    - **CrossOver Bottle** — your bottle with Steam + ETS2 installed (usually named "Steam")
    - **Steam directory** — the Steam folder inside the bottle (auto-detected from the bottle path)
-   - **Game directory** — the ETS2 folder inside the bottle (auto-detected from the Steam dir)
+   - **Game directory** — the ETS2 folder inside the bottle (auto-detected from the Steam directory)
 3. Click **Start Steam** and wait for it to start up.
 4. Hit **Launch ETS2 MP**.
 
