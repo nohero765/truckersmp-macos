@@ -59,7 +59,7 @@ Switch between backends per-game from the sidebar toggle:
 - **In-game time, latest TMP version, supported ETS2 version** at a glance, with manual refresh
 - **Upcoming events** list pulled from the TMP API with date, type, and server
 
-### Player Finder -Might get removed in a future build- S
+### Player Finder -Might get removed in a future build- 
 - **Look up any TruckersMP player by numeric ID** — shows avatar, ban count, VTC affiliation, and join year
 - Lives in the right sidebar — always one click away
 
@@ -75,7 +75,6 @@ Switch between backends per-game from the sidebar toggle:
 - **Singleplayer mode** — bypasses TruckersMP login and launches ETS2 directly
 - **Metal HUD overlay** — shows GPU/CPU stats in-game, works with either backend
 - **Retina Mode** toggle
-- **Show debug bar** — real-time internal diagnostics
 - **Show Wine Activity section** toggle for the log panel
 - **Extra CLI arguments**
 - **Rebindable keyboard shortcuts** — click a binding, press a new key combo, or reset all to defaults
