@@ -104,7 +104,7 @@ Defaults (all rebindable in Settings → Launcher Options):
 | Euro Truck Simulator 2 | Must be installed via Steam inside a Wine bottle |
 | **Either:** [CrossOver](https://www.codeweavers.com/crossover) (free trial available) **or nothing else** | Standalone  manages its own Wine build — no CrossOver purchase/trial needed |
 
-> As of DXMT 0.72, experimental Intel Mac support was added — Apple Silicon is still recommended, but Intel Macs may work.
+> As of [DXMT 0.72](https://github.com/3Shain/dxmt/releases#release-v0.72), experimental Intel Mac support was added — Apple Silicon is still recommended, but Intel Macs may work.
 
 > As of now Standalone Wine mode currently installs **Wine 11.11** and **DXMT 0.80**.
 ---
