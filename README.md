@@ -2,7 +2,7 @@
 
 A macOS launcher for [TruckersMP](https://truckersmp.com) — the ETS2 multiplayer mod — built with Electron. Under the hood it wraps [truckersmp-cli](https://github.com/truckersmp-cli/truckersmp-cli) and can either use **CrossOver Wine** or a fully self-contained **Standalone Wine** build to launch the game.
 
-> **Beta release (v2.0 Beta) — things are subject to change.** 
+> **Beta release (v2.1 Beta) — things are subject to change.** 
 
 > As of now this launcher only supports **ETS2MP**. ATS support is **planned**
 
@@ -156,10 +156,10 @@ If you'd rather use your own Discord app instead of the built-in one:
 
 ### Rich Presence extras
 
-- **Advanced RPC** — shows truck, route and city requires an ETS2 telemetry plugin
+- **Advanced RPC** — shows truck, route and city requires an ETS2 telemetry plugin. The launcher uses [Funbit ets2 telemetry server](https://github.com/funbit/ets2-telemetry-server)
 
 > [!NOTE]
-> Telemetry / Advanced RPC hasn't been tested with **Standalone Wine mode** yet. If you rely on this feature use **CrossOver mode** for now StandAlone Wine support is planned.
+> Telemetry / Advanced RPC is still very early and still being worked on you might encounter some errors while using it.
 ---
 
 ## Troubleshooting
