@@ -52,7 +52,7 @@ Switch between backends per-game from the sidebar toggle:
 
 ### TruckersMP Server Status
 - **Live server list** pulled from the TMP API — shows player count and server status
-- **Favourites** star your main servers; favourites pin to the top of the list
+- **Favourites** star your main servers favourites pin to the top of the list
 - **Auto-refresh** on a configurable interval (see Launcher Options), plus manual refresh
 
 ### TMP Info & Events
@@ -67,7 +67,7 @@ Switch between backends per-game from the sidebar toggle:
 - **Enable/disable Discord RPC**
 - **Custom Discord Application ID** — bring your own Discord app for a personalised status
 - **Customise Rich Presence** panel for status text fields
-- **Set ETS2MP Logs Folder** + **Force Watch Chat Log** — scans today's `chat_YYYY_MM_DD` log every 5 seconds for "Connected to simulation N" / "Connection established" to auto-detect when you've joined a server
+- **Set ETS2MP Logs Folder** + **Force Watch Chat Log** — scans today's `chat_YYYY_MM_DD` log every 5 seconds for "Connected to XXXXXX" / "Connection established" to auto-detect when you've joined a server
 - **Auto-reconnect Discord** — retries every 20s while the game is running
 - **Enable Advanced RPC** — shows truck + route (requires an ETS2 telemetry plugin)
 
