@@ -214,8 +214,14 @@ PRs and issues welcome. If you hit a crash or a path detection failure, please o
 
 ## Acknowledgements
 
-This project was developed with AI assistance — what started as an idea became a reality with its help.
+This project was developed with AI assistance — what started as an idea became a reality with its help. 
 Inspired by [matyash12's unofficial TruckersMP macOS launcher](https://github.com/matyash12/unofficial-truckersmp-macos-launcher).
+
+---
+
+## Disclaimer
+
+This project is an independent, open-source launcher for TruckersMP on macOS. It is not affiliated with, endorsed by, or sponsored by TruckersMP or SCS Software. All trademarks and copyrights belong to their respective owners.
 
 ## License
 
