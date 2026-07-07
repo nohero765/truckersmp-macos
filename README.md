@@ -175,17 +175,21 @@ On CrossOver, try switching translators (DXMT is recommended on Apple Silicon). 
 **Wine processes linger after stopping**
 Use **Kill All** in the Wine Activity panel — it kills every Wine-related process.
 
-**Discord RPC not working**
-Make sure Discord is running, and that your Application ID is correct.
+1. **Discord RPC not working**
+- Make sure Discord is running, and that your Application ID is correct.
 
-**Slight pink shadow on the truck / steering wheel**
-Go into ETS2 graphics settings and set reflection quality to High. This is a known rendering quirk that sometimes resolves itself after a TruckersMP or DXMT update.
+2. **Slight pink shadow on the truck / steering wheel**
+- Go into ETS2 graphics settings and set reflection quality to High. This is a known rendering quirk that sometimes resolves itself after a TruckersMP or DXMT update.
 
-**I keep getting "wine discord ipc bridge has encountered a serious problem"**
-either disable discord rpc in settings (Also disables the launchers custom rpc) or run TruckersMP and in settings disable discord rpc.
+3. **I keep getting "wine discord ipc bridge has encountered a serious problem"**
+- either disable discord rpc in settings (Also disables the launchers custom rpc) or run TruckersMP and in settings disable discord rpc.
 
-**when trying to use the ingame radio my game freezes**
-make sure in wine configuration (winecfg) that your microphone is set to your macbook microphone or headphones and not system default
+4. **when trying to use the ingame radio my game freezes**
+ - make sure in wine configuration (winecfg) that your microphone is set to your macbook microphone or headphones and not system default
+
+5. **the contrast in game is really high and messing with my eyes**
+
+- for standalone wine mode it got fixed in latest release of DXMT and also tried adding options in launcher to fix it for people using CodeWeavers crossover until a new update of crossover comes out and they update the DXMT version there is no way as of now to fix it (unless you upgrade DXMT via [Cxpatcher](https://github.com/italomandara/CXPatcher))
 
 ---
 
