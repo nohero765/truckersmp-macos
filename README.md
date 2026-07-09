@@ -189,8 +189,7 @@ Use **Kill All** in the Wine Activity panel — it kills every Wine-related proc
 
 5. **the contrast in game is really high and messing with my eyes**
 
-- for standalone wine mode it got fixed in latest release of DXMT and also tried adding options in launcher to fix it for people using CodeWeavers crossover until a new update of crossover comes out and they update the DXMT version there is no way as of now to fix it (unless you upgrade DXMT via [Cxpatcher](https://github.com/italomandara/CXPatcher))
-
+- TODO
 ---
 
 ## Uninstalling
