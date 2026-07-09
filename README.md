@@ -161,7 +161,7 @@ If you'd rather use your own Discord app instead of the built-in one:
 - **Advanced RPC** — shows truck, route and city requires an ETS2 telemetry plugin. The launcher uses [Funbit ets2 telemetry server](https://github.com/funbit/ets2-telemetry-server)
 
 > [!NOTE]
-> Telemetry / Advanced RPC is still very early and still being worked on you might encounter some errors while using it.
+> Telemetry / Advanced RPC is still very early and still being worked on you might encounter some errors while using it. When installing it keep pressing "Okay" and ignore the errors.
 ---
 
 ## Troubleshooting
