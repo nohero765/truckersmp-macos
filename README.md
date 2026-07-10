@@ -5,7 +5,7 @@
 
 A macOS launcher for [TruckersMP](https://truckersmp.com) — the ETS2 multiplayer mod — built with Electron. Under the hood it wraps [truckersmp-cli](https://github.com/truckersmp-cli/truckersmp-cli) and can either use **CrossOver Wine** or a fully self-contained **Standalone Wine** build to launch the game.
 
-> **Beta release (v2.1.0 Beta) — things are subject to change.** 
+> **Beta release (v2.1.1 Beta) — things are subject to change.** 
 
 > As of now this launcher only supports **ETS2MP**. ATS support is **planned**
 
@@ -45,10 +45,12 @@ Switch between backends per-game from the sidebar toggle:
 
 ### Live Log Viewer
 - **Real-time log streaming** with colour-coded output (info / warn / error / success / system)
-- **Category tabs**  filter between All / Wine / Launcher output
-- **Filter bar** to search log output on the fly
-- **Timestamps** and **auto-scroll** toggles
-- **Clear** button to reset the log
+- **New Log Settings Menu**, featuring:
+  - **Category tabs** to filter between All / Wine / Launcher output
+  - **Filter bar** to search log output on the fly
+  - **Timestamps** and **auto-scroll** toggles
+  - **Clear** button to reset the log
+  - **Reduce Clutter** launcher does its best its can to only give important logs and reduce repeated logs.
 
 ### TruckersMP Server Status
 - **Live server list** pulled from the TMP API — shows player count and server status
