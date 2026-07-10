@@ -110,7 +110,7 @@ Defaults (all rebindable in Settings → Launcher Options):
 
 > As of [DXMT 0.72](https://github.com/3Shain/dxmt/releases#release-v0.72), experimental Intel Mac support was added — Apple Silicon is still recommended, but Intel Macs may work.
 
-> As of now Standalone Wine mode currently installs **Wine 11.11** and **DXMT 0.80**.
+> As of now Standalone Wine mode currently installs **Wine 11.12** and **DXMT 0.80**.
 ---
 
 ## Setup
