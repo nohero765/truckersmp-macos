@@ -5,7 +5,7 @@
 
 A macOS launcher for [TruckersMP](https://truckersmp.com) — the ETS2 multiplayer mod — built with Electron. Under the hood it wraps [truckersmp-cli](https://github.com/truckersmp-cli/truckersmp-cli) and can either use **CrossOver Wine** or a fully self-contained **Standalone Wine** build to launch the game.
 
-> **Beta release (v2.1.1 Beta) — things are subject to change.** 
+> **Beta release (v2.1.2 Beta) — things are subject to change.** 
 
 > As of now this launcher only supports **ETS2MP**. ATS support is **planned**
 
