@@ -191,7 +191,7 @@ If you'd rather use your own Discord app instead of the built-in one:
 
 8. **the contrast in game is really high and messing with my eyes**
 
-- Toggle the "Disable HDR reprensation" button under launch options in settings `Tested on standalone wine mode works perfectly` for Crossover uses the toggle doesnt work for some reason either try upgrading DXMT version via CXpatcher and try am still searching for a fix.
+- Toggle the "Disable HDR reprensation" button under launch options in settings `Tested on standalone wine mode works perfectly` for Crossover users the toggle doesnt work for some reason either try upgrading DXMT version via CXpatcher and try am still searching for a fix.
 ---
 
 ## Uninstalling
