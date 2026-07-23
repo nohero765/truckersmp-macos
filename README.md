@@ -14,7 +14,7 @@ A macOS launcher for [TruckersMP](https://truckersmp.com) — the ETS2 multiplay
 </p>
 
 > [!WARNING]
-> For versions 2.1.3 and under macos may show "App is damgaged while trying to run it to fix it either do **sudo xattr -rc '/Applications/TruckersMP for macOS.app' '** or **codesign --force --deep --sign - "/Applications/TruckersMP for macOS.app"**
+> For versions 2.1.3 and under macos may show "App is damgaged" while trying to run it to fix it either do **sudo xattr -rc '/Applications/TruckersMP for macOS.app' '** or **codesign --force --deep --sign - "/Applications/TruckersMP for macOS.app"**
 ---
 
 ## Features
