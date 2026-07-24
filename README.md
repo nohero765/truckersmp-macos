@@ -148,8 +148,8 @@ If `pip3` isn't available, install Python 3 from [python.org](https://www.python
 
 The launcher ships with a default Discord Application ID already configured — Rich Presence works out of the box, no setup required.
 
-1. Make sure **Enable Discord Rich Presence** is checked in Settings
-2. Customise the status text via **Customise Rich Presence**
+1. Make sure **Enable Discord Rich Presence** is checked in Settings (a discord bot id should already be present.)
+2. Customise the status text via **Customise Rich Presence** *(optional)*
 3. Done!
 
 ### Using your own Discord Application (optional)
@@ -160,10 +160,10 @@ If you'd rather use your own Discord app instead of the built-in one:
 
 ### Rich Presence extras
 
-- **Advanced RPC** — shows truck, route and city requires an ETS2 telemetry plugin. The launcher uses [Funbit ets2 telemetry server](https://github.com/funbit/ets2-telemetry-server)
+- **Advanced RPC** — shows truck, route and city requires an ETS2 telemetry plugin. The launcher uses [Funbit ETS2 telemetry server](https://github.com/funbit/ets2-telemetry-server)
 
 > [!NOTE]
-> Telemetry / Advanced RPC is still very early and still being worked on you might encounter some errors while using it. When installing it keep pressing "Okay" and ignore the errors.
+> Telemetry / Advanced RPC is still early and still being worked on you might encounter some errors while using it. When installing it keep pressing "Ok" and ignore the errors.
 ---
 
 ## Troubleshooting
