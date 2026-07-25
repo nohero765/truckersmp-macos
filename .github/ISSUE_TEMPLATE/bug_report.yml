@@ -1,5 +1,5 @@
 name: Bug Report
-description: Report a problem with TruckersMP for macOS
+description: Report a problem.
 title: "[Bug]: "
 labels: ["bug"]
 body:
@@ -38,15 +38,17 @@ body:
         - M4
         - M4 Pro / Max / Ultra
         - M5
-        - M5 Pro / Max / Ultra
+        - M5 Pro / Max 
     validations:
       required: true
 
-  - type: input
+  - type: dropdown
     id: mac_model
     attributes:
       label: Mac Model
-      placeholder: e.g. MacBook Air 13" 2024, Mac mini 2023
+      options:
+        - MacBook Air
+        - MacBook Pro
     validations:
       required: true
 
@@ -71,7 +73,7 @@ body:
     attributes:
       label: Wine Mode
       options:
-        - Standalone Wine (custom build)
+        - Standalone Wine
         - CrossOver
         - Not sure
     validations:
