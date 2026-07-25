@@ -38,7 +38,7 @@ body:
         - M4
         - M4 Pro / Max / Ultra
         - M5
-        - M5 Pro / Max
+        - M5 Pro / Max / Ultra
     validations:
       required: true
 
@@ -71,7 +71,7 @@ body:
     attributes:
       label: Wine Mode
       options:
-        - Standalone Wine 
+        - Standalone Wine (custom build)
         - CrossOver
         - Not sure
     validations:
