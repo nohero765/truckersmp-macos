@@ -1,0 +1,22 @@
+name: Suggestion
+description: Suggest a feature or improvement.
+title: "[Suggestion]: "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: What's your suggestion?
+      description: Describe the feature or improvement you'd like to see
+      placeholder: e.g. Add more animations in app.
+    validations:
+      required: true
+
+  - type: textarea
+    id: motivation
+    attributes:
+      label: Why would this help?
+      description: What problem does this solve, or what would it make easier?
+      
+    validations:
+      required: false
