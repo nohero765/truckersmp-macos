@@ -11,7 +11,6 @@ body:
       placeholder: e.g. Launcher crashes right after clicking Launch in Standalone Wine mode
     validations:
       required: true
-
   - type: dropdown
     id: architecture
     attributes:
@@ -21,7 +20,6 @@ body:
         - Apple Silicon
     validations:
       required: true
-
   - type: dropdown
     id: chip
     attributes:
@@ -41,7 +39,6 @@ body:
         - M5 Pro / Max 
     validations:
       required: true
-
   - type: dropdown
     id: mac_model
     attributes:
@@ -51,7 +48,6 @@ body:
         - MacBook Pro
     validations:
       required: true
-
   - type: input
     id: macos_version
     attributes:
@@ -59,7 +55,6 @@ body:
       placeholder: e.g. macOS 15.5 Sequoia
     validations:
       required: true
-
   - type: input
     id: launcher_version
     attributes:
@@ -67,7 +62,6 @@ body:
       placeholder: e.g. v2.2.0 Beta
     validations:
       required: true
-
   - type: dropdown
     id: wine_mode
     attributes:
@@ -78,7 +72,6 @@ body:
         - Not sure
     validations:
       required: true
-
   - type: textarea
     id: steps
     attributes:
@@ -91,7 +84,15 @@ body:
         4. Crash happens
     validations:
       required: true
-
+  - type: textarea
+    id: launcher_log
+    attributes:
+      label: Launcher Log
+      description: Copy and paste the launcher log here.
+      placeholder: Paste log output here
+      render: shell
+    validations:
+      required: false
   - type: dropdown
     id: troubleshooting
     attributes:
