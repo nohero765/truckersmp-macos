@@ -64,7 +64,7 @@ body:
     id: launcher_version
     attributes:
       label: Launcher Version
-      placeholder: e.g. v2.0 Beta
+      placeholder: e.g. v2.2.0 Beta
     validations:
       required: true
 
