@@ -206,9 +206,6 @@ The in-app **Reset & Uninstall** button (Settings → About) only clears `~/.con
 
 3. **Launcher config** (settings, keybinds, saved paths)
    - `~/.config/truckersmp-launcher`
-
-> [!WARNING]
-> This permanently deletes any installed Wine builds and bottles.
 ---
 ## Contributing
 
