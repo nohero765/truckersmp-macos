@@ -1,0 +1,101 @@
+name: Bug Report
+description: Report a problem with TruckersMP for macOS
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Describe the problem
+      description: What's happening? What did you expect to happen instead?
+      placeholder: e.g. Launcher crashes right after clicking Launch in Standalone Wine mode
+    validations:
+      required: true
+
+  - type: dropdown
+    id: architecture
+    attributes:
+      label: Mac Architecture
+      options:
+        - Intel
+        - Apple Silicon
+    validations:
+      required: true
+
+  - type: dropdown
+    id: chip
+    attributes:
+      label: Chip (if Apple Silicon)
+      description: Leave on the first option if you're on Intel
+      options:
+        - N/A (Intel)
+        - M1
+        - M1 Pro / Max / Ultra
+        - M2
+        - M2 Pro / Max / Ultra
+        - M3
+        - M3 Pro / Max / Ultra
+        - M4
+        - M4 Pro / Max / Ultra
+        - M5
+        - M5 Pro / Max
+    validations:
+      required: true
+
+  - type: input
+    id: mac_model
+    attributes:
+      label: Mac Model
+      placeholder: e.g. MacBook Air 13" 2024, Mac mini 2023
+    validations:
+      required: true
+
+  - type: input
+    id: macos_version
+    attributes:
+      label: macOS Version
+      placeholder: e.g. macOS 15.5 Sequoia
+    validations:
+      required: true
+
+  - type: input
+    id: launcher_version
+    attributes:
+      label: Launcher Version
+      placeholder: e.g. v2.0 Beta
+    validations:
+      required: true
+
+  - type: dropdown
+    id: wine_mode
+    attributes:
+      label: Wine Mode
+      options:
+        - Standalone Wine 
+        - CrossOver
+        - Not sure
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to Reproduce
+      description: How can we recreate this issue?
+      placeholder: |
+        1. Open the launcher
+        2. Select Standalone Wine mode
+        3. Click Launch
+        4. Crash happens
+    validations:
+      required: true
+
+  - type: dropdown
+    id: troubleshooting
+    attributes:
+      label: Did you check the Troubleshooting section in the README?
+      options:
+        - "Yes"
+        - "No"
+    validations:
+      required: true
