@@ -3,7 +3,7 @@
 ![License](https://img.shields.io/github/license/nohero765/truckersmp-macos)
 ![GitHub Stars](https://img.shields.io/github/stars/nohero765/truckersmp-macos)
 
-A macOS launcher for [TruckersMP](https://truckersmp.com) — the ETS2 multiplayer mod — built with Electron. Under the hood it wraps [truckersmp-cli](https://github.com/truckersmp-cli/truckersmp-cli) and can either use **CrossOver Wine** or a fully self-contained **Standalone Wine** build to launch the game.
+A macOS launcher for [TruckersMP](https://truckersmp.com) — the ETS2 multiplayer mod and ATS mod— built with Electron. Under the hood it wraps [truckersmp-cli](https://github.com/truckersmp-cli/truckersmp-cli) and can either use **CrossOver Wine** or a fully self-contained **Standalone Wine** build to launch the game.
 
 > **Beta release (v2.2.0 Beta) — things are subject to change.** 
 
@@ -18,9 +18,9 @@ A macOS launcher for [TruckersMP](https://truckersmp.com) — the ETS2 multiplay
 ## Features
 
 ### Launch & Game Control
-- **One-click launch** into TruckersMP multiplayer or ETS2 singleplayer
+- **One-click launch** into TruckersMP multiplayer or ETS2/ATS singleplayer
 - **American Truck Simulator (ATS) support** — a dedicated ATS icon in the game launch UI automatically scans for your ATS game path so you can launch straight into TruckersMP for ATS
-- **Start Steam** independently then **Launch ETS2 MP** once it's up
+- **Start Steam** independently then **Launch ETS2 MP *or* ATSMP** once it's up
 - **Stop / Force Kill** correctly terminates all Wine processes
 - **Wine Activity panel** shows running Wine processes with **Manage** and **Kill All**
 
@@ -40,7 +40,7 @@ Switch between backends per-game from the sidebar toggle:
 - **Setup Wizard** installs the latest Wine build and DXMT release automatically.
 - **Wine version manager** install multiple Wine builds side by side, mark one **active**, uninstall old ones
 - **Status checklist** Wine installed / Bottle ready / DXMT version, each with a ✓
-- **Bottle Path** **Steam Directory inside bottle**, and **ETS2 Game Directory inside bottle**, independently configurable
+- **Bottle Path** **Steam Directory inside bottle**, and **ETS2/ATS Game Directory inside bottle**, independently configurable
 - **Launch winecfg** and **Reinstall DXMT** shortcuts
 - **Wine Command runner** — run Wine commands (e.g. `regedit`, `explorer`) directly to the bottle
 - **Wine Log** toggleable debug logging with **Open in Finder**
@@ -83,7 +83,7 @@ Switch between backends per-game from the sidebar toggle:
 - **Enable Advanced RPC** — shows truck + route (requires an ETS2 telemetry plugin)
 
 ### Other Settings
-- **Singleplayer mode** — bypasses TruckersMP login and launches ETS2 directly
+- **Singleplayer mode** — bypasses TruckersMP login and launches ETS2/ATS directly
 - **Metal HUD overlay** — shows GPU/CPU stats in-game, works with either backend
 - **Retina Mode** toggle
 - **Disable Steam Overlay** — new option under Launch Options to disable the Steam overlay when running ETS2 or ATS
@@ -131,7 +131,7 @@ Defaults (all rebindable in Settings → Launcher Options):
 2. Click **Open Setup Wizard** and follow the prompts — it installs Wine, prepares the bottle, and installs DXMT for you
 3. Once the checklist shows **Wine installed ✓ / Bottle ready ✓ / DXMT ✓**, click **Auto-detect Paths** to locate Steam and ETS2 inside the bottle (or set **Bottle Path**, **Steam Directory**, and **ETS2 Game Directory** manually)
 4. Click **Start Steam**, wait for it to finish starting up
-5. Hit **Launch ETS2 MP**
+5. Hit **Launch ETS2 MP *or* ATS MP**
 
 If you need to install a different Wine build later, use **+ Install New** under Wine Versions, then mark the one you want as active.
 
@@ -140,11 +140,11 @@ If you need to install a different Wine build later, use **+ Install New** under
 2. If anything is missing, use the **Browse** buttons in Settings to set paths manually:
    - **truckersmp-cli path** — usually `~/.local/bin/truckersmp-cli`
    - **Wine (CrossOver) path** — inside `/Applications/CrossOver.app/...`
-   - **CrossOver Bottle** — your bottle with Steam + ETS2 installed (usually named "Steam")
+   - **CrossOver Bottle** — your bottle with Steam + ETS2/ATS installed (usually named "Steam")
    - **Steam directory** — the Steam folder inside the bottle (auto-detected from the bottle path)
-   - **Game directory** — the ETS2 folder inside the bottle (auto-detected from the Steam directory)
+   - **Game directory** — the ETS2/ATS folder inside the bottle (auto-detected from the Steam directory)
 3. Click **Start Steam** and wait for it to start up.
-4. Hit **Launch ETS2 MP**.
+4. Hit **Launch ETS2 MP *or* ATS mp**.
 
 ### Installing truckersmp-cli
 
