@@ -19,9 +19,11 @@ A macOS launcher for [TruckersMP](https://truckersmp.com) — the ETS2 multiplay
 
 ### Launch & Game Control
 - **One-click launch** into TruckersMP multiplayer or ETS2 singleplayer
+- **American Truck Simulator (ATS) support** — a dedicated ATS icon in the game launch UI automatically scans for your ATS game path so you can launch straight into TruckersMP for ATS
 - **Start Steam** independently then **Launch ETS2 MP** once it's up
 - **Stop / Force Kill** correctly terminates all Wine processes
 - **Wine Activity panel** shows running Wine processes with **Manage** and **Kill All**
+
 
 ### Two Wine Backends
 Switch between backends per-game from the sidebar toggle:
@@ -45,7 +47,7 @@ Switch between backends per-game from the sidebar toggle:
 
 ### Live Log Viewer
 - **Real-time log streaming** with colour-coded output (info / warn / error / success / system)
-- **New Log Settings Menu**, featuring:
+- **Log Settings Menu**, featuring:
   - **Category tabs** to filter between All / Wine / Launcher output
   - **Filter bar** to search log output on the fly
   - **Timestamps** and **auto-scroll** toggles
@@ -65,6 +67,13 @@ Switch between backends per-game from the sidebar toggle:
 - **Look up any TruckersMP player by numeric ID** — shows avatar, ban count, VTC affiliation, and join year
 - Lives in the right sidebar — always one click away
 
+### Playtime Tracking
+- **Playtime card** in the left sidebar tracks and displays your total playtime as well as your last session's playtime
+
+### Sidebar Customization
+- **Edit Sidebar** (Settings → Launcher Options) — toggle which cards show up in the left sidebar (Status, Playtime, TruckersMP Servers, Detection, Command Preview) and right sidebar (TMP Info, Upcoming Events, Player Finder)
+- **Auto-hiding sidebar** — if you untick all right sidebar cards, the sidebar automatically collapses and hides the toggle arrow until you re-enable a card
+
 ### Discord Rich Presence
 - **Enable/disable Discord RPC**
 - **Custom Discord Application ID** — bring your own Discord app for a personalised status
@@ -77,6 +86,7 @@ Switch between backends per-game from the sidebar toggle:
 - **Singleplayer mode** — bypasses TruckersMP login and launches ETS2 directly
 - **Metal HUD overlay** — shows GPU/CPU stats in-game, works with either backend
 - **Retina Mode** toggle
+- **Disable Steam Overlay** — new option under Launch Options to disable the Steam overlay when running ETS2 or ATS
 - **Show Wine Activity section** toggle for the log panel
 - **Extra CLI arguments**
 - **Rebindable keyboard shortcuts** — click a binding, press a new key combo, or reset all to defaults
@@ -106,6 +116,7 @@ Defaults (all rebindable in Settings → Launcher Options):
 | Apple Silicon Mac | Required for [DXMT](https://github.com/3Shain/dxmt) |
 | [truckersmp-cli](https://github.com/truckersmp-cli/truckersmp-cli) | Install via `pip3 install truckersmp-cli` |
 | Euro Truck Simulator 2 | Must be installed via Steam inside a Wine bottle |
+| American Truck Simulator *(optional)* | Must be installed via Steam inside the same Wine bottle as ETS2 |
 | **Either:** [CrossOver](https://www.codeweavers.com/crossover) (free trial available) **or nothing else** | Standalone  manages its own Wine build — no CrossOver purchase/trial needed |
 
 > As of [DXMT 0.72](https://github.com/3Shain/dxmt/releases#release-v0.72), experimental Intel Mac support was added — Apple Silicon is still recommended, but Intel Macs may work.
@@ -148,15 +159,8 @@ If `pip3` isn't available, install Python 3 from [python.org](https://www.python
 
 The launcher ships with a default Discord Application ID already configured — Rich Presence works out of the box, no setup required.
 
-1. Make sure **Enable Discord Rich Presence** is checked in Settings (a discord bot id should already be present.)
-2. Customise the status text via **Customise Rich Presence** *(optional)*
-3. Done!
-
-### Using your own Discord Application (optional)
-If you'd rather use your own Discord app instead of the built-in one:
-1. Create a free app at [discord.com/developers/applications](https://discord.com/developers/applications)
-2. Name it "TruckersMP" and add the TruckersMP logo as an image asset named `truckersmp`
-3. Paste the Client ID into Settings → Discord Application ID, replacing the default one
+1. Make sure **Enable Discord Rich Presence** is checked in Settings.
+2. Done!
 
 ### Rich Presence extras
 
