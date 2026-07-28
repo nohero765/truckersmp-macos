@@ -28,7 +28,7 @@ A macOS launcher for [TruckersMP](https://truckersmp.com) — the ETS2 multiplay
 ### Two Wine Backends
 Switch between backends per-game from the sidebar toggle:
 - **CrossOver Wine** uses an existing CrossOver install and bottle
-- **Standalone Wine** *(Beta)* — fully independent, no CrossOver required. The launcher manages its own Wine builds bottle and DXMT install for you
+- **Standalone Wine** fully independent, no CrossOver required. The launcher manages its own Wine builds bottle and DXMT install for you
 
 ### Path Management
 - **Auto-detect** for `truckersmp-cli`, Wine, Bottle, Steam directory, and game directory (works for both backends — **Auto-detect Paths** in Standalone Wine settings)
