@@ -114,7 +114,7 @@ Defaults (all rebindable in Settings → Launcher Options):
 | Apple Silicon Mac | Required for [DXMT](https://github.com/3Shain/dxmt) |
 | [truckersmp-cli](https://github.com/truckersmp-cli/truckersmp-cli) | Install via `pip3 install truckersmp-cli` |
 | Euro Truck Simulator 2 | Must be installed via Steam inside a Wine bottle |
-| American Truck Simulator *(optional)* | Must be installed via Steam inside the same Wine bottle as ETS2 |
+| American Truck Simulator | Must be installed via Steam inside the same Wine bottle as ETS2 |
 | **Either:** [CrossOver](https://www.codeweavers.com/crossover) (free trial available) **or nothing else** | Standalone  manages its own Wine build — no CrossOver purchase/trial needed |
 
 > As of [DXMT 0.72](https://github.com/3Shain/dxmt/releases#release-v0.72), experimental Intel Mac support was added — Apple Silicon is still recommended, but Intel Macs may work.
