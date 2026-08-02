@@ -11,6 +11,8 @@ A macOS launcher for [TruckersMP](https://truckersmp.com) — the ETS2 multiplay
   <img src="icon.png" width="128" alt="App Icon">
 </p>
 
+> [!WARNING]
+> This app supports **macOS Sequoia and above**. **macOS Sonoma** may work but isn't guaranteed Older versions are not supported.
 ---
 
 ## Features
