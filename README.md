@@ -11,8 +11,6 @@ A macOS launcher for [TruckersMP](https://truckersmp.com) — the ETS2 multiplay
   <img src="icon.png" width="128" alt="App Icon">
 </p>
 
-> [!WARNING]
-> This app supports **macOS Sequoia and above**. **macOS Sonoma** may work but isn't guaranteed Older versions are not supported.
 ---
 
 ## Features
@@ -113,11 +111,14 @@ Defaults (all rebindable in Settings → Launcher Options):
 
 | Dependency | Notes |
 |---|---|
-| Apple Silicon Mac | Required for [DXMT](https://github.com/3Shain/dxmt) |
+| Apple Silicon Mac | Required for [DXMT](https://github.com/3Shain/dxmt), Preferably macOS Tahoe  |
 | [truckersmp-cli](https://github.com/truckersmp-cli/truckersmp-cli) | Install via `pip3 install truckersmp-cli` |
 | Euro Truck Simulator 2 | Must be installed via Steam inside a Wine bottle |
 | American Truck Simulator | Must be installed via Steam inside the a Wine bottle like ETS2 |
 | **Either:** [CrossOver](https://www.codeweavers.com/crossover) (free trial available) **or nothing else** | Standalone  manages its own Wine build — no CrossOver purchase/trial needed |
+
+> [!WARNING]
+> This app supports **macOS Sequoia and above**. **macOS Sonoma** may work but isn't guaranteed Older versions are not supported.
 
 > As of [DXMT 0.72](https://github.com/3Shain/dxmt/releases#release-v0.72), experimental Intel Mac support was added — Apple Silicon is still recommended, but Intel Macs may work.
 
@@ -154,7 +155,7 @@ If you need to install a different Wine build later, use **+ Install New** under
 pip3 install truckersmp-cli
 ```
 
-If `pip3` isn't available, install Python 3 from [python.org](https://www.python.org/downloads/) first. You can also use `pipx install truckersmp-cli`.
+If `pip3` isn't available, install Python 3 from [python.org](https://www.python.org/downloads/) first.
 
 ---
 ## Discord Rich Presence Setup
@@ -166,7 +167,7 @@ The launcher ships with a default Discord Application ID already configured — 
 
 ### Rich Presence extras
 
-- **Advanced RPC** — shows truck, route and city requires an ETS2 telemetry plugin. The launcher uses [Funbit ETS2 telemetry server](https://github.com/funbit/ets2-telemetry-server)
+- **Advanced RPC** — shows truck, route and city requires an ETS2 telemetry plugin. The launcher uses [Funbit ETS2 Telemetry Server](https://github.com/funbit/ets2-telemetry-server)
 
 > [!NOTE]
 > Telemetry / Advanced RPC is still early and still being worked on you might encounter some errors while using it. When installing it keep pressing "Ok" and ignore the errors.
