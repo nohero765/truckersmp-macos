@@ -61,9 +61,6 @@ Switch between backends per-game from the sidebar toggle:
 - **In-game time, latest TMP version, supported ETS2 version** at a glance, with manual refresh
 - **Upcoming events** list pulled from the TMP API with date, type, and server
 
-### Player Finder -Might get removed in a future build- 
-- **Look up any TruckersMP player by numeric ID** — shows avatar, ban count, VTC affiliation, and join year
-- Lives in the right sidebar — always one click away
 
 ### Playtime Tracking
 - **Playtime card** in the left sidebar tracks and displays your total playtime as well as your last session's playtime
