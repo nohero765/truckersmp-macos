@@ -32,7 +32,7 @@ Switch between backends per-game from the sidebar toggle:
 - **Auto-detect** for `truckersmp-cli`, Wine, Bottle, Steam directory, and game directory (works for both backends — **Auto-detect Paths** in Standalone Wine settings)
 - **Detection badges** (Found and Not found) in the sidebar
 - **Browse buttons** and **Open Bottle in Finder**
-- **↻ Re-detect**
+- **↻ Re-detect** 
 
 ### Standalone 
 - **Setup Wizard** installs the latest Wine build and DXMT release automatically.
@@ -52,8 +52,9 @@ Switch between backends per-game from the sidebar toggle:
   - **Clear** button to reset the log
   - **Reduce Clutter** launcher does its best its can to only give important logs and reduce repeated logs.
 
-### TruckersMP Server Status
+### TruckersMP Server Status & Live Traffic
 - **Live server list** pulled from the TMP API — shows player count and server status
+- **Live "Busiest Traffic" view** — powered by the Trucky API, toggle the servers card header to view real-time map congestion, player counts, and severity levels
 - **Favourites** star your main servers favourites pin to the top of the list
 - **Auto-refresh** on a configurable interval (see Launcher Options), plus manual refresh
 
@@ -73,11 +74,14 @@ Switch between backends per-game from the sidebar toggle:
 - **Enable/disable Discord RPC**
 - **Custom Discord Application ID** — bring your own Discord app for a personalised status
 - **Customise Rich Presence** panel for status text fields
+- **Improved ETS2 city coordinates** — experimental option under Rich Presence Extras for more accurate "Near: / In:" city detection, including an optional merged list that updates live mid-session
+- **Fix wrong model option** — resolves telemetry switching issues on Volvo FH trucks by retaining the last saved model name
 - **Set ETS2MP Logs Folder** + **Force Watch Chat Log** — scans today's `chat_YYYY_MM_DD` log every 5 seconds for "Connected to XXXXXX" / "Connection established" to auto-detect when you've joined a server
 - **Auto-reconnect Discord** — retries every 20s while the game is running
 - **Enable Advanced RPC** — shows truck + route (requires an ETS2 telemetry plugin)
 
 ### Other Settings
+- **MetalFX Spatial Upscaling** — support for MetalFX upscaling to boost performance on older hardware by rendering at a lower resolution and upscaling it (similar to DLSS)
 - **Singleplayer mode** — bypasses TruckersMP login and launches ETS2/ATS directly
 - **Metal HUD overlay** — shows GPU/CPU stats in-game, works with either backend
 - **Retina Mode** toggle
