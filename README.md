@@ -72,8 +72,6 @@ Switch between backends per-game from the sidebar toggle:
 
 ### Discord Rich Presence
 - **Enable/disable Discord RPC**
-- **Custom Discord Application ID** — bring your own Discord app for a personalised status
-- **Customise Rich Presence** panel for status text fields
 - **Improved ETS2 city coordinates** — experimental option under Rich Presence Extras for more accurate "Near: / In:" city detection, including an optional merged list that updates live mid-session
 - **Fix wrong model option** — resolves telemetry switching issues on Volvo FH trucks by retaining the last saved model name
 - **Set ETS2MP Logs Folder** + **Force Watch Chat Log** — scans today's `chat_YYYY_MM_DD` log every 5 seconds for "Connected to XXXXXX" / "Connection established" to auto-detect when you've joined a server
