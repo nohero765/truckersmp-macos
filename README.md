@@ -174,28 +174,34 @@ The launcher ships with a default Discord Application ID already configured — 
 
 ## Troubleshooting
 
-1. **truckersmp-cli not found**
+
+1. **"TruckersMP for macOS.app" Not Opened Apple could not verify "TruckersMP for macOS.app" is free of malware that may harm your Mac or compromise your privacy.**
+- Since this app isn't signed (due to me not having an apple developer account) you will get this message but dont fret it can be easily bypassable! Open **Settings** scroll down till you see **Privacy and Security** Scroll down and you will find TruckersMP for macOS <img width="467" height="118" alt="Screenshot 2026-08-11 at 6 34 01 PM" src="https://github.com/user-attachments/assets/51aba1e6-6b08-4412-8380-2101ad93a61a" />
+- Click **Open Anyway** type your password or use TouchID and then done! app will now open without any issues or touching the terminal!                 
+**why do we have todo this? since I dont profit off this app so nothing covers the 99$ apple charges every year for an Apple developer account.**
+
+2. **truckersmp-cli not found**
 - Run `pip3 install truckersmp-cli`, then click **↻ Re-detect** in the sidebar.
 
-2. **Game launches but crashes immediately**
+3. **Game launches but crashes immediately**
 - On CrossOver, try switching translators (DXMT is recommended on Apple Silicon). On Standalone Wine, use **Wine Diagnostics** in Settings to test your setup, or try **Reinstalling DXMT** or **deleting bottle** and starting setup from scratch
 
-3. **Wine processes linger after stopping**
+4. **Wine processes linger after stopping**
 - Use **Kill All** in the Wine Activity panel — it kills every Wine-related process.
 
-4. **Discord RPC not working**
+5. **Discord RPC not working**
 - Make sure Discord is running, and that your Application ID is correct.
 
-5. **Slight pink shadow on the truck / steering wheel**
+6. **Slight pink shadow on the truck / steering wheel**
 - Go into ETS2 graphics settings and set reflection quality to High. This is a known rendering quirk that sometimes resolves itself after a TruckersMP or DXMT update.
 
-6. **I keep getting "wine discord ipc bridge has encountered a serious problem"**
+7. **I keep getting "wine discord ipc bridge has encountered a serious problem"**
 - either disable discord rpc in settings (Also disables the launchers custom rpc) or run TruckersMP and in settings disable discord rpc.
 
-7. **when trying to use the ingame radio my game freezes**
+8. **when trying to use the ingame radio my game freezes**
  - make sure in wine configuration (winecfg) that your microphone is set to your macbook microphone or headphones and not system default
 
-8. **the contrast in game is really high and messing with my eyes**
+9. **the contrast in game is really high and messing with my eyes**
 
 - Toggle the "Disable HDR reprensation" button under launch options in settings `Tested on standalone wine mode works perfectly` for Crossover users the toggle doesnt work for some reason either try upgrading DXMT version via CXpatcher and try am still searching for a fix.
 ---
