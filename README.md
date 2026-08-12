@@ -96,8 +96,7 @@ Switch between backends per-game from the sidebar toggle:
 - **Server status & TMP info refresh interval** — configurable dropdown (default: every 1 minute)
 - **Settings persistence** at `~/.config/truckersmp-launcher/settings.json`
 - **Reset & Uninstall** — remove launcher settings (permanently deletes `~/.config/truckersmp-launcher/`) without leaving the app
-- **About tab** — version info, **Check for Update**, and credits
-
+- **About tab** — version info and **Check for Update**
 ### Keyboard Shortcuts
 Defaults (all rebindable in Settings → Launcher Options):
 
@@ -193,10 +192,10 @@ The launcher ships with a default Discord Application ID already configured — 
 - On CrossOver, try switching translators (DXMT is recommended on Apple Silicon). On Standalone Wine, use **Wine Diagnostics** in Settings to test your setup, or try **Reinstalling DXMT** or **deleting bottle** and starting setup from scratch
 
 4. **Wine processes linger after stopping**
-- Use **Kill All** in the Wine Activity panel — it kills every Wine-related process.
+- if this happens dont worry about it the moment you close the launcher it does a last verification sweep that all wine processes are closed if one is still running it will be closed.
 
 5. **Discord RPC not working**
-- Make sure Discord is running, and that your Application ID is correct.
+- Make sure Discord is running if still doesnt work open an issue and provide the launcher log.
 
 6. **Slight pink shadow on the truck / steering wheel**
 - Go into ETS2 graphics settings and set reflection quality to High. This is a known rendering quirk that sometimes resolves itself after a TruckersMP or DXMT update.
