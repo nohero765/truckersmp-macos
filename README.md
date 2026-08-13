@@ -14,7 +14,7 @@ A macOS launcher for [TruckersMP](https://truckersmp.com) — the ETS2 multiplay
 ---
 
 Need a video tutorial? Here!      ↴      
-<a href="https://www.youtube.com/watch?v=zh7L3ah6Bvo&t=77s">
+<a href="https://www.youtube.com/watch?v=zh7L3ah6Bvo">
   <img src="imageyt.jpg" alt="TruckersMP on Apple Silicon" width="190">
 </a>
 
