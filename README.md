@@ -237,6 +237,21 @@ Inspired by [matyash12's unofficial TruckersMP macOS launcher](https://github.co
 
 ---
 
+## Credits
+
+this project uses the following tools:
+
+- **[Wine](https://www.winehq.org/)** — Windows compatibility layer. (the project TruckersMP for macOS uses this custom built [Wine](https://github.com/nohero765/wine-builds-))
+- **[CodeWeavers/CrossOver](https://www.codeweavers.com/crossover)** — This project's custom Wine build Uses CodeWeavers' CrossOver patches. Thank you for their years of upstream Wine contributions. 
+- **[DXMT](https://github.com/3Shain/dxmt)** — DirectX-to-Metal translation layer used in place of D3DMetal.
+- **[truckersmp-cli](https://github.com/truckersmp-cli/truckersmp-cli)** — Used to launch TruckersMP and install TMP files.
+- **[Funbit ETS2 Telemetry Server](https://github.com/Funbit/ets2-telemetry-server)** — used for telemetry tab and exact coordinates of the truck/car
+
+ a big thank you for these developers who developed these tools the project wouldn't have been possible without their hard work.
+
+
+___
+
 ## Disclaimer
 
 This project is an independent, open-source launcher for TruckersMP on macOS. It is not affiliated with, endorsed by, or sponsored by TruckersMP or SCS Software. All trademarks and copyrights belong to their respective owners.
