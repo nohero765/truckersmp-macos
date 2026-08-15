@@ -98,7 +98,7 @@ body:
     attributes:
       label: Did you check the Troubleshooting section in the README?
       options:
-        - "Yes"
         - "No"
+        - "Yes"
     validations:
       required: true
