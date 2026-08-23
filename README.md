@@ -3,7 +3,7 @@
 ![License](https://img.shields.io/github/license/nohero765/truckersmp-macos)
 ![GitHub Stars](https://img.shields.io/github/stars/nohero765/truckersmp-macos)
 
-A macOS launcher for [TruckersMP](https://truckersmp.com) — the ETS2 multiplayer mod and ATS multiplayer mod— built with Electron (for now). Under the hood it wraps [truckersmp-cli](https://github.com/truckersmp-cli/truckersmp-cli) and can either use **CrossOver Wine** or a fully self-contained **Standalone Wine** build to launch the game.
+A macOS launcher for [TruckersMP](https://truckersmp.com) the ETS2 multiplayer mod and ATS multiplayer mod built with Electron (for now). Under the hood it wraps [truckersmp-cli](https://github.com/truckersmp-cli/truckersmp-cli) and can either use **CrossOver Wine** or a fully self-contained **Standalone Wine** build to launch the game.
 
 > **Beta release (v2.3.0 Beta) — things are subject to change.** 
 
@@ -22,7 +22,7 @@ Need a video tutorial? Here!      ↴
 ## Features
 
 ### Launch & Game Control
-- **One-click launch** into TruckersMP multiplayer or ETS2/ATS singleplayer
+- **One click launch** into TruckersMP multiplayer or ETS2/ATS singleplayer
 - **American Truck Simulator (ATS) support** — a dedicated ATS icon in the game launch UI automatically scans for your ATS game path so you can launch straight into TruckersMP for ATS
 - **Start Steam** independently then **Launch ETS2 MP *or* ATSMP** once it's up
 - **Stop / Force Kill** correctly terminates all Wine processes
@@ -30,12 +30,12 @@ Need a video tutorial? Here!      ↴
 
 
 ### Two Wine Backends
-Switch between backends per-game from the sidebar toggle:
+Switch between backends per game from the sidebar toggle:
 - **CrossOver Wine** uses an existing CrossOver install and bottle
 - **Standalone Wine** fully independent, no CrossOver required. The launcher manages its own Wine builds bottle and DXMT install for you
 
 ### Path Management
-- **Auto-detect** for `truckersmp-cli`, Wine, Bottle, Steam directory, and game directory (works for both backends — **Auto-detect Paths** in Standalone Wine settings)
+- **Auto detect** for `truckersmp-cli`, Wine, Bottle, Steam directory, and game directory (works for both backends — **Auto detect Paths** in Standalone Wine settings)
 - **Detection badges** (Found and Not found) in the sidebar
 - **Browse buttons** and **Open Bottle in Finder**
 - **↻ Re-detect** 
@@ -50,22 +50,22 @@ Switch between backends per-game from the sidebar toggle:
 - **Wine Log** toggleable debug logging with **Open in Finder**
 
 ### Live Log Viewer
-- **Real-time log streaming** with colour-coded output (info / warn / error / success / system)
+- **Real-time log streaming** with colour coded output (info / warn / error / success / system)
 - **Log Settings Menu**, featuring:
   - **Category tabs** to filter between All / Wine / Launcher output
   - **Filter bar** to search log output on the fly
-  - **Timestamps** and **auto-scroll** toggles
+  - **Timestamps** and **auto scroll** toggles
   - **Clear** button to reset the log
   - **Reduce Clutter** launcher does its best its can to only give important logs and reduce repeated logs.
 
 ### TruckersMP Server Status & Live Traffic
 - **Live server list** pulled from the TMP API — shows player count and server status
-- **Live "Busiest Traffic" view** — powered by the Trucky API, toggle the servers card header to view real-time map congestion, player counts, and severity levels
+- **Live "Busiest Traffic" view** — powered by the Trucky API, toggle the servers card header to view real time map congestion, player counts, and severity levels
 - **Favourites** star your main servers favourites pin to the top of the list
-- **Auto-refresh** on a configurable interval (see Launcher Options), plus manual refresh
+- **Auto refresh** on a configurable interval (see Launcher Options), plus manual refresh
 
 ### TMP Info & Events
-- **In-game time, latest TMP version, supported ETS2 version** at a glance, with manual refresh
+- **In game time, latest TMP version, supported ETS2 version** at a glance, with manual refresh
 - **Upcoming events** list pulled from the TMP API with date, type, and server
 
 
@@ -74,20 +74,20 @@ Switch between backends per-game from the sidebar toggle:
 
 ### Sidebar Customization
 - **Edit Sidebar** (Settings → Launcher Options) — toggle which cards show up in the left sidebar (Status, Playtime, TruckersMP Servers, Detection, Command Preview) and right sidebar (TMP Info, Upcoming Events, Player Finder)
-- **Auto-hiding sidebar** — if you untick all right sidebar cards, the sidebar automatically collapses and hides the toggle arrow until you re-enable a card
+- **Auto hiding sidebar** — if you untick all right sidebar cards, the sidebar automatically collapses and hides the toggle arrow until you re-enable a card
 
 ### Discord Rich Presence
 - **Enable/disable Discord RPC**
-- **Improved ETS2 city coordinates** — experimental option under Rich Presence Extras for more accurate "Near: / In:" city detection, including an optional merged list that updates live mid-session
+- **Improved ETS2 city coordinates** — experimental option under Rich Presence Extras for more accurate "Near: / In:" city detection, including an optional merged list that updates live mid session
 - **Fix wrong model option** — resolves telemetry switching issues on Volvo FH trucks by retaining the last saved model name
-- **Set ETS2MP Logs Folder** + **Force Watch Chat Log** — scans today's `chat_YYYY_MM_DD` log every 5 seconds for "Connected to XXXXXX" / "Connection established" to auto-detect when you've joined a server
-- **Auto-reconnect Discord** — retries every 20s while the game is running
+- **Set ETS2MP Logs Folder** + **Force Watch Chat Log** — scans today's `chat_YYYY_MM_DD` log every 5 seconds for "Connected to XXXXXX" / "Connection established" to auto detect when you've joined a server
+- **Auto reconnect Discord** — retries every 20s while the game is running
 - **Enable Advanced RPC** — shows truck + route (requires an ETS2 telemetry plugin)
 
 ### Other Settings
 - **MetalFX Spatial Upscaling** — support for MetalFX upscaling to boost performance on older hardware by rendering at a lower resolution and upscaling it (similar to DLSS)
 - **Singleplayer mode** — bypasses TruckersMP login and launches ETS2/ATS directly
-- **Metal HUD overlay** — shows GPU/CPU stats in-game, works with either backend
+- **Metal HUD overlay** — shows GPU/CPU stats in game, works with either backend
 - **Retina Mode** toggle
 - **Disable Steam Overlay** — option under Launch Options to disable the Steam overlay when running ETS2 or ATS
 - **Show Wine Activity section** toggle for the log panel
@@ -143,13 +143,13 @@ Defaults (all rebindable in Settings → Launcher Options):
 If you need to install a different Wine build later, use **+ Install New** under Wine Versions, then mark the one you want as active.
 
 ### CrossOver Mode
-1. Launch the app — it will try to **auto-detect** all paths on first run. Detection badges in the sidebar show what was found.
+1. Launch the app — it will try to **auto detect** all paths on first run. Detection badges in the sidebar show what was found.
 2. If anything is missing, use the **Browse** buttons in Settings to set paths manually:
    - **truckersmp-cli path** — usually `~/.local/bin/truckersmp-cli`
    - **Wine (CrossOver) path** — inside `/Applications/CrossOver.app/...`
    - **CrossOver Bottle** — your bottle with Steam + ETS2/ATS installed (usually named "Steam")
-   - **Steam directory** — the Steam folder inside the bottle (auto-detected from the bottle path)
-   - **Game directory** — the ETS2/ATS folder inside the bottle (auto-detected from the Steam directory)
+   - **Steam directory** — the Steam folder inside the bottle (auto detected from the bottle path)
+   - **Game directory** — the ETS2/ATS folder inside the bottle (auto detected from the Steam directory)
 3. Click **Start Steam** and wait for it to start up.
 4. Hit **Launch ETS2 MP *or* ATS mp**.
 
@@ -213,7 +213,7 @@ The launcher ships with a default Discord Application ID already configured — 
 
 ## Uninstalling
 
-The in-app **Reset & Uninstall** button (Settings → About) only clears `~/.config/truckersmp-launcher/`. To fully remove the app, delete these three locations:
+The in app **Reset & Uninstall** button (Settings → About) only clears `~/.config/truckersmp-launcher/`. To fully remove the app, delete these three locations:
 
 1. **The app itself**
    - `/Applications/TruckersMP For macOS.app`
@@ -243,9 +243,9 @@ this project uses the following tools:
 
 - **[Wine](https://www.winehq.org/)** — Windows compatibility layer. (the project TruckersMP for macOS uses this custom built [Wine](https://github.com/nohero765/wine-builds-))
 - **[CodeWeavers/CrossOver](https://www.codeweavers.com/crossover)** — This project's custom Wine build Uses CodeWeavers' CrossOver patches. Thank you for their years of upstream Wine contributions. 
-- **[DXMT](https://github.com/3Shain/dxmt)** — DirectX-to-Metal translation layer used in place of D3DMetal.
+- **[DXMT](https://github.com/3Shain/dxmt)** — DirectX to Metal translation layer used in place of D3DMetal.
 - **[truckersmp-cli](https://github.com/truckersmp-cli/truckersmp-cli)** — Used to launch TruckersMP and install TMP files.
-- **[Funbit ETS2 Telemetry Server](https://github.com/Funbit/ets2-telemetry-server)** — used for telemetry tab and exact coordinates of the truck/car
+- **[Funbit ETS2 Telemetry Server](https://github.com/Funbit/ets2-telemetry-server)** — Used for Telemetry Tab and exact coordinates of the truck/car
 
  a big thank you for these developers who developed these tools the project wouldn't have been possible without their hard work.
 
