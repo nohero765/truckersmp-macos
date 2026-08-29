@@ -5,7 +5,7 @@
 
 A macOS launcher for [TruckersMP](https://truckersmp.com) the ETS2 multiplayer mod and ATS multiplayer mod built with Electron (for now). Under the hood it wraps [truckersmp-cli](https://github.com/truckersmp-cli/truckersmp-cli) and can either use **CrossOver Wine** or a fully self-contained **Standalone Wine** build to launch the game.
 
-> **Beta release (v2.3.0 Beta) — things are subject to change.** 
+> **Beta release (v2.4.0 Beta) — things are subject to change.** 
 
 <p align="center">
   <img src="icon.png" width="128" alt="App Icon">
@@ -48,6 +48,9 @@ Switch between backends per game from the sidebar toggle:
 - **Launch winecfg** and **Reinstall DXMT** shortcuts
 - **Wine Command runner** — run Wine commands (e.g. `regedit`, `explorer`) directly to the bottle
 - **Wine Log** toggleable debug logging with **Open in Finder**
+- **Automatic Font Installation** — required TruckersMP fonts are now installed automatically when a bottle is created
+- **Keep Plugins Toggle** — a "Keep plugins after install" option in settings lets you preserve installed plugins across reinstalls
+- **Wine Log Options** — dedicated logging options added for the Wine log
 
 ### Live Log Viewer
 - **Real-time log streaming** with colour coded output (info / warn / error / success / system)
@@ -67,6 +70,7 @@ Switch between backends per game from the sidebar toggle:
 ### TMP Info & Events
 - **In game time, latest TMP version, supported ETS2 version** at a glance, with manual refresh
 - **Upcoming events** list pulled from the TMP API with date, type, and server
+- **"ON THIS MAC" section** — pulls from active logs to show your current game and client version
 
 
 ### Playtime Tracking
@@ -74,7 +78,8 @@ Switch between backends per game from the sidebar toggle:
 
 ### Sidebar Customization
 - **Edit Sidebar** (Settings → Launcher Options) — toggle which cards show up in the left sidebar (Status, Playtime, TruckersMP Servers, Detection, Command Preview) and right sidebar (TMP Info, Upcoming Events, Player Finder)
-- **Auto hiding sidebar** — if you untick all right sidebar cards, the sidebar automatically collapses and hides the toggle arrow until you re-enable a card
+- **Appearance Options** — customizable Accent Color and Background Color settings, with custom color pickers available
+- **Transparency & Blur Toggles** — dedicated Transparency and Blur buttons so you can pick whichever fits your style
 
 ### Discord Rich Presence
 - **Enable/disable Discord RPC**
@@ -83,6 +88,7 @@ Switch between backends per game from the sidebar toggle:
 - **Set ETS2MP Logs Folder** + **Force Watch Chat Log** — scans today's `chat_YYYY_MM_DD` log every 5 seconds for "Connected to XXXXXX" / "Connection established" to auto detect when you've joined a server
 - **Auto reconnect Discord** — retries every 20s while the game is running
 - **Enable Advanced RPC** — shows truck + route (requires an ETS2 telemetry plugin)
+- **Discord RPC Session ID** — with the release of the TruckersMP SDK, Rich Presence can now show your Session ID via a launcher-developed plugin that auto installs and configures itself on start
 
 ### Other Settings
 - **MetalFX Spatial Upscaling** — support for MetalFX upscaling to boost performance on older hardware by rendering at a lower resolution and upscaling it (similar to DLSS)
@@ -97,6 +103,9 @@ Switch between backends per game from the sidebar toggle:
 - **Settings persistence** at `~/.config/truckersmp-launcher/settings.json`
 - **Reset & Uninstall** — remove launcher settings (permanently deletes `~/.config/truckersmp-launcher/`) without leaving the app
 - **About tab** — version info and **Check for Update**
+- **TMP & Wine Update Notifications** — in-app notifications whenever a new TruckersMP or Wine update is available
+- **Settings Layout Reorganization** — "Show quit animations" is now located under "Show macOS notification"
+- **Launch Game Controller settings** — launches wine Game controller menu
 ### Keyboard Shortcuts
 Defaults (all rebindable in Settings → Launcher Options):
 
@@ -126,7 +135,7 @@ Defaults (all rebindable in Settings → Launcher Options):
 
 > As of [DXMT 0.72](https://github.com/3Shain/dxmt/releases#release-v0.72), experimental Intel Mac support was added — Apple Silicon is still recommended, but Intel Macs may work.
 
-> As of now Standalone Wine mode currently installs **Wine 11.12** and **DXMT 0.80**.
+> As of now Standalone Wine mode currently installs **Wine 11.0** and **DXMT 0.80**.
 
 > its not mandatory to install ATS with ETS or opposite choose which multiplayer you would like to join and install the game you want based on that.
 ---
@@ -209,6 +218,11 @@ The launcher ships with a default Discord Application ID already configured — 
 9. **the contrast in game is really high and messing with my eyes**
 
 - Toggle the "Disable HDR reprensation" button under launch options in settings `Tested on standalone wine mode works perfectly` for Crossover users the toggle doesnt work for some reason either try upgrading DXMT version via CXpatcher and try am still searching for a fix.
+
+10. **Controller vibration doesn't work over Bluetooth**
+- If the game still doesn't send over the game rumble after upgrading to Wine CrossOver 11.0, click the **Launch Controller Settings** button and make sure under **Advanced Settings** that **Enable SDL** is toggled on and **Disable hidraw** is on. Enabling **Disable hidraw** may cause the touchpad to be unusable until that option is disabled again.
+
+
 ---
 
 ## Uninstalling
