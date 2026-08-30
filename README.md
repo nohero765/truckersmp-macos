@@ -189,7 +189,7 @@ The launcher ships with a default Discord Application ID already configured — 
 
 
 1. **"TruckersMP for macOS.app" Not Opened Apple could not verify "TruckersMP for macOS.app" is free of malware that may harm your Mac or compromise your privacy.**
-- Since this app isn't signed (due to me not having an apple developer account) you will get this message but dont fret it can be easily bypassable! Open **Settings** scroll down till you see **Privacy and Security** Scroll down and you will find TruckersMP for macOS <img width="467" height="118" alt="Screenshot 2026-08-11 at 6 34 01 PM" src="https://github.com/user-attachments/assets/51aba1e6-6b08-4412-8380-2101ad93a61a" />
+- Since this app isn't signed (due to me not having an apple developer account) you will get this message but dont fret it can be easily bypassable! Open **Settings** scroll down till you see **Privacy and Security** click it then Scroll down and you will find TruckersMP for macOS <img width="467" height="118" alt="Screenshot 2026-08-11 at 6 34 01 PM" src="https://github.com/user-attachments/assets/51aba1e6-6b08-4412-8380-2101ad93a61a" />
 - Click **Open Anyway** type your password or use TouchID and then done! app will now open without any issues or touching the terminal!                 
 **why do we have todo this? since I dont profit off this app so nothing covers the 99$ apple charges every year for an Apple developer account.**
 
