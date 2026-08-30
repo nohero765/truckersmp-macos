@@ -197,7 +197,7 @@ The launcher ships with a default Discord Application ID already configured — 
 - Run `pip3 install truckersmp-cli`, then click **↻ Re-detect** in the sidebar.
 
 3. **Game launches but crashes immediately**
-- On CrossOver, try switching translators (DXMT is recommended on Apple Silicon). On Standalone Wine, use **Wine Diagnostics** in Settings to test your setup, or try **Reinstalling DXMT** or **deleting bottle** and starting setup from scratch
+- On CrossOver, try switching translators (DXMT is recommended on Apple Silicon). On Standalone Wine,  Restart your Mac or try **Reinstalling DXMT** , **Deleting Bottle** and starting setup from scratch
 
 4. **Wine processes linger after stopping**
 - if this happens dont worry about it the moment you close the launcher it does a last verification sweep that all wine processes are closed if one is still running it will be closed.
