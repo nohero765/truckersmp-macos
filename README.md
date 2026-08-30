@@ -26,7 +26,6 @@ Need a video tutorial? Here!      ↴
 - **American Truck Simulator (ATS) support** — a dedicated ATS icon in the game launch UI automatically scans for your ATS game path so you can launch straight into TruckersMP for ATS
 - **Start Steam** independently then **Launch ETS2 MP *or* ATSMP** once it's up
 - **Stop / Force Kill** correctly terminates all Wine processes
-- **Wine Activity panel** shows running Wine processes with **Manage** and **Kill All**
 
 
 ### Two Wine Backends
