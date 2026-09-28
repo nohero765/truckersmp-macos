@@ -12,6 +12,15 @@ A macOS launcher for [TruckersMP](https://truckersmp.com) the ETS2 multiplayer m
 </p>
 
 ---
+> [!IMPORTANT]
+> I’m currently rebuilding the entire app from the ground up as a native **Swift application**. Because of this, I won’t be releasing any more updates for the Electron build for now.
+>
+> Any bugs, missing features, or broken stuff in the Electron version will be fixed in the new Swift version instead.
+>
+> You can still report any issues you find though. It helps me make sure I don’t miss anything while working on **v3.0 Stable**.
+
+
+---
 
 Need a video tutorial? Here!      ↴      
 <a href="https://www.youtube.com/watch?v=zh7L3ah6Bvo">
