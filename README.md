@@ -132,7 +132,7 @@ Defaults (all rebindable in Settings → Launcher Options):
 
 | Dependency | Notes |
 |---|---|
-| Apple Silicon Mac | Required for [DXMT](https://github.com/3Shain/dxmt), Preferably macOS Tahoe  |
+| Apple Silicon Mac | Required for [DXMT](https://github.com/3Shain/dxmt)  |
 | [truckersmp-cli](https://github.com/truckersmp-cli/truckersmp-cli) | Install via `pip3 install truckersmp-cli` |
 | Euro Truck Simulator 2 | Must be installed via Steam inside a Wine bottle |
 | American Truck Simulator | Must be installed via Steam inside the a Wine bottle like ETS2 |
