@@ -206,7 +206,7 @@ The launcher ships with a default Discord Application ID already configured — 
 5. **Discord RPC not working**
 - Make sure Discord is running if still doesnt work open an issue and provide the launcher log.
 
-6. **Slight pink shadow on the truck / steering wheel**
+6. **Slight pink shadow on the truck or steering wheel / whole truck model is white.**
 - Go into ETS2 graphics settings and set reflection quality to High. This is a known rendering quirk that sometimes resolves itself after a TruckersMP or DXMT update.
 
 7. **I keep getting "wine discord ipc bridge has encountered a serious problem"**
