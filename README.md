@@ -12,15 +12,17 @@ A macOS launcher for [TruckersMP](https://truckersmp.com) the ETS2 multiplayer m
 </p>
 
 ---
+> [!WARNING]
+> Will be updated **later** with the swift launcher open source files.
+
+---
 
 
 Need a video tutorial? Here!      ↴      
-<a href="https://www.youtube.com/watch?v=zh7L3ah6Bvo">
-  <img src="imageyt.jpg" alt="TruckersMP on Apple Silicon" width="190">
-</a>
+WIP
 
 ---
-## Features
+## Features - WORK IN PROGRESS NOT UPDATED CURRENTLY
 
 ### Launch & Game Control
 - **One click launch** into TruckersMP multiplayer or ETS2/ATS singleplayer
