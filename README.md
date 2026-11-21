@@ -5,7 +5,7 @@
 
 A macOS launcher for [TruckersMP](https://truckersmp.com) the ETS2 multiplayer mod and ATS multiplayer mod built with Swift. Under the hood it wraps [truckersmp-cli](https://github.com/truckersmp-cli/truckersmp-cli) and can either use **CrossOver Wine** or a fully self-contained **Standalone Wine** build to launch the game.
 
-> **Stable release (v3.0.0)**
+> **Stable release (v3.0.1)**
 
 <p align="center">
   <img src="icon.png" width="128" alt="App Icon">
